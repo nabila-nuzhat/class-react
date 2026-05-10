@@ -116,3 +116,14 @@ https://react.dev/learn
     As a command-line tool, it lets you install, update, and manage those packages (libraries/dependencies) in your projects.
     Common npm commands include npm install to add packages, npm run to execute scripts, npm update to upgrade dependencies, and npm publish to share your own packages.
     Every Node.js project typically has a package.json file that npm uses to track the project's dependencies, scripts, and metadata.
+
+
+-----------------------
+- ESLint 
+    is a code quality tool for JavaScript (and TypeScript) that automatically checks your code for problems before you run it.
+    like a spell-checker, but for code logic and style.
+    What it does
+    It reads your code and flags things like:
+        Bugs — variables declared but never used, calling functions that don't exist, unreachable code
+        Bad practices — using == instead of ===, using var instead of let/const
+        Style issues — missing semicolons, wrong indentation, inconsistent quotes
