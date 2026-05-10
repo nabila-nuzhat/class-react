@@ -3,9 +3,116 @@ https://react.dev/learn
     - React apps are made out of components. 
     - component is a piece of the UI (user interface) that has its own logic and appearance. 
     - A component can be as small as a button, or as large as an entire page.
-    - React components are JavaScript functions that return markup
+    -  React component is a JavaScript function that you can sprinkle with markup
+    - React applications are built from isolated pieces of UI called components.
+    - Components are one of the core concepts of React. They are the foundation upon which you build user interfaces (UI),  
 
 
 - React:
     - React is a JavaScript library 
     - for rendering user interfaces (UI)
+    - UI is built from small units like buttons, text, and images. 
+    - React lets you combine them into reusable, nestable components. 
+    - From web sites to phone apps, everything on the screen can be broken down into components.
+    - React applications are built from isolated pieces of UI called components 
+
+--------------------------
+- Rendering vs Loading in SPAs
+    - two distinct phases in a Single Page Application's lifecycle:
+
+    Loading:
+        Loading refers to fetching the resources and data needed to display something.
+
+        Downloading JS/CSS/HTML bundles from the server
+        Making API calls to fetch data
+        Resolving async dependencies (fonts, images, etc.)
+
+        Loading is an I/O-bound operation — the app is waiting on the network or disk.
+
+    Rendering
+        Rendering refers to converting data/state into visible UI.
+
+        React/Vue/Angular diffing the virtual DOM and updating the real DOM
+        The browser painting pixels on screen (layout → paint → composite)
+        Re-rendering components when state changes
+
+        Rendering is a CPU-bound operation — the app is doing computation.
+
+        The Core Distinction
+
+            Loading = waiting for data/resources to arrive.
+            Rendering = turning what you have into pixels.
+
+            You can have fast loading but slow rendering (heavy DOM, expensive components),
+            or fast rendering but slow loading (large bundles, slow APIs). 
+            Optimizing an SPA usually means profiling both separately.
+
+        Diffing (short for "differencing") is the process of comparing two versions of something to find what changed.
+
+---------------------
+- Vite
+    Vite is a modern frontend build tool created by Evan You (the creator of Vue.js). The name means "fast" in French — and that's exactly what it's built for.
+
+    Vite is a development environment provider — it gives you a fast, smart workspace to write and test your code, then packages it for the real world when you're ready.
+
+    Vite (French word for "quick", pronounced /viːt/, like "veet") is a build tool that aims to provide a faster and leaner development experience for modern web projects. It consists of two major parts:
+
+        A dev server that provides rich feature enhancements over native ES modules, for example extremely fast Hot Module Replacement (HMR).
+
+        A build command that bundles your code with Rolldown, pre-configured to output highly optimized static assets for production.
+
+            The Two Roles of Vite
+                1. During Development → Acts as a Dev Server
+
+                It spins up a local server (usually http://localhost:5173)
+                When your browser requests a file, Vite transforms and serves it on the fly
+                It watches your files for changes and instantly reflects updates in the browser (HMR — Hot Module Replacement)
+                You still write all the code yourself
+
+                2. During Production → Acts as a Bundler
+
+                When you run npm run build, Vite packages all your code into optimized, browser-ready files
+                Minifies JS/CSS, splits code, removes unused code (tree-shaking)
+                Outputs a dist/ folder you deploy to a server
+
+
+                
+            What it does
+            Vite serves two main purposes:
+
+            Development server — serves your source files instantly using native ES modules in the browser, so there's no bundling step during development. This makes startup nearly instantaneous, regardless of project size.
+            Production bundler — uses Rollup under the hood to bundle your code for production, with optimizations like tree-shaking, code splitting, and minification.
+
+            Why it's popular
+            Traditional bundlers like Webpack bundle everything before the dev server starts. As projects grow, this gets slow. Vite sidesteps this by:
+
+            No bundling on dev startup — it only transforms files on demand, when the browser requests them.
+            Hot Module Replacement (HMR) that stays fast even in large apps, since updates are scoped to the changed module only.
+
+            Key features
+
+            Works with React, Vue, Svelte, Vanilla JS, TypeScript, and more out of the box
+            Plugin system compatible with Rollup plugins
+            Built-in support for CSS, JSON, static assets, and CSS preprocessors
+            First-class TypeScript support
+            Easy environment variable handling (.env files)
+
+            Basic usage
+            bashnpm create vite@latest my-app -- --template react
+            cd my-app
+            npm install
+            npm run dev
+            In short, Vite has become the go-to dev tool for modern frontend projects because it's dramatically faster than older bundlers, especially during development.
+
+            - Scaffolding Your First Vite Project
+            Vite is a modern frontend build tool that provides an extremely fast development experience
+            "Scaffolding" means generating a starter project structure automatically.
+
+-----------------------------------
+
+- npm
+    - npm (Node Package Manager) is the default package manager for Node.js. It serves two main purposes:
+    As a package registry, it's the world's largest software registry, hosting over 2 million open-source JavaScript packages that developers can freely use in their projects.
+    As a command-line tool, it lets you install, update, and manage those packages (libraries/dependencies) in your projects.
+    Common npm commands include npm install to add packages, npm run to execute scripts, npm update to upgrade dependencies, and npm publish to share your own packages.
+    Every Node.js project typically has a package.json file that npm uses to track the project's dependencies, scripts, and metadata.
