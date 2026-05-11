@@ -131,32 +131,43 @@ https://react.dev/learn
 ---------------------------
 - React_Github_Safety Checklist
     - Gitignore file safety for GitHub
+theory location: 
 mycollection folder > ss
-
 -----------------------------
+
 - Understanding eslint.config.js
+theory location: 
 mycollection folder > ss
+-----------------------------
 
--------------------------------
 - Vite.config.js purpose and function
+theory location: 
 mycollection folder > ss
+-----------------------------
 
--------------------------------
 - React providers
+theory location: 
 mycollection folder > ss
-
--------------------------------
+-----------------------------
 - Client-side routing in React Router
+theory location: 
 mycollection folder > ss
-
--------------------------------
+-----------------------------
 - Main.jsx vs App.jsx
 - App.css vs index.css
 
+theory location: 
 mycollection folder > ss
-
--------------------------------
+-----------------------------
 - App.css_Component scope vs organizational structure
+theory location: 
 mycollection folder > ss
-
--------------------------------
+-----------------------------
+- React fragment basics
+    - exactly the same — <Fragment> is just the named version of <>.
+    - The One Difference — key prop:
+        <> </> cannot accept any props. So when you need a key (e.g. in a list), you must use <Fragment>:
+        
+theory location: 
+mycollection folder > ss
+-----------------------------
