@@ -127,3 +127,36 @@ https://react.dev/learn
         Bugs — variables declared but never used, calling functions that don't exist, unreachable code
         Bad practices — using == instead of ===, using var instead of let/const
         Style issues — missing semicolons, wrong indentation, inconsistent quotes
+
+---------------------------
+- React_Github_Safety Checklist
+    - Gitignore file safety for GitHub
+mycollection folder > ss
+
+-----------------------------
+- Understanding eslint.config.js
+mycollection folder > ss
+
+-------------------------------
+- Vite.config.js purpose and function
+mycollection folder > ss
+
+-------------------------------
+- React providers
+mycollection folder > ss
+
+-------------------------------
+- Client-side routing in React Router
+mycollection folder > ss
+
+-------------------------------
+- Main.jsx vs App.jsx
+- App.css vs index.css
+
+mycollection folder > ss
+
+-------------------------------
+- App.css_Component scope vs organizational structure
+mycollection folder > ss
+
+-------------------------------
