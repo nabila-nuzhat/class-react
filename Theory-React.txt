@@ -153,21 +153,31 @@ mycollection folder > ss
 theory location: 
 mycollection folder > ss
 -----------------------------
+
 - Main.jsx vs App.jsx
 - App.css vs index.css
 
 theory location: 
 mycollection folder > ss
 -----------------------------
+
 - App.css_Component scope vs organizational structure
 theory location: 
 mycollection folder > ss
 -----------------------------
+
 - React fragment basics
     - exactly the same — <Fragment> is just the named version of <>.
     - The One Difference — key prop:
         <> </> cannot accept any props. So when you need a key (e.g. in a list), you must use <Fragment>:
-        
+
 theory location: 
 mycollection folder > ss
 -----------------------------
+
+- React component naming conventions
+
+theory location: 
+mycollection folder > ss
+-----------------------------
+
