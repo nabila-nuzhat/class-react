@@ -181,3 +181,21 @@ theory location:
 mycollection folder > ss
 -----------------------------
 
+- Button component export and import
+- Button component import suggestions not appearing
+
+theory location: 
+mycollection folder > ss
+-----------------------------
+
+- React functional component with JSX
+
+theory location: 
+mycollection folder > ss
+-----------------------------
+
+- React component syntax
+
+theory location: 
+mycollection folder > ss
+-----------------------------
