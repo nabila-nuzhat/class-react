@@ -199,3 +199,15 @@ mycollection folder > ss
 theory location: 
 mycollection folder > ss
 -----------------------------
+
+- Why props is an object
+
+theory location: 
+mycollection folder > ss
+-----------------------------
+
+- Destructuring
+
+theory location: 
+mycollection folder > ss
+-----------------------------
