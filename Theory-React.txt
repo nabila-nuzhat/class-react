@@ -244,3 +244,37 @@ theory location:
 mycollection folder > ss
 React Hooks
 -----------------------------------------------------------------------------
+
+- useState()
+    - Basic Syntax
+    javascriptconst [state, setState] = useState(initialValue);
+    - setState namimg convention
+    state — the current value
+    setState — function to update it
+    initialValue — the starting value (runs only on first render)
+
+    - So useState(0) is React's way of doing let count = 0 — but in a way that survives re-renders and updates the screen.
+
+    - useState()  →  sets up the state slot, returns [value, setter]
+      setCount()  →  changes the state, triggers re-render
+
+theory location: 
+mycollection folder > ss
+useState syntax
+-----------------------------------------------------------------------------
+
+- useState() Mutation of states's current state:
+    - // These hooks skip recalculating if state hasn't changed
+        // Mutation fools them into thinking nothing changed
+        // → UI shows stale/wrong data silently ❌
+
+        Simple way to think about it
+
+        In a small app mutation is like running a red light at 3am — you probably get away with it. In a big app it's running a red light in rush hour traffic — guaranteed crash, just a matter of when.
+
+        React's rules exist not for simple counters, but for when your app has hundreds of components depending on the same state.
+        
+theory location: 
+mycollection folder > ss
+useState setCount increment Bug-Claude + Deepseek
+-----------------------------------------------------------------------------
