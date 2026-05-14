@@ -211,3 +211,36 @@ mycollection folder > ss
 theory location: 
 mycollection folder > ss
 -----------------------------
+
+- React state not updating (does not rerender) with Plain JS in jsx:
+
+theory location: 
+mycollection folder > ss
+-------------------------------------------------------------
+
+- Hook
+    - react hook starts with the keyword "use"
+    - A React Hook is a special function that lets you "hook into" React features (like state and lifecycle) 
+      from functional components — no class components needed.
+
+- States
+    - useState — adds local state to a component
+    - Local state is data that belongs to a single component and is managed entirely within it — other components 
+    can't directly access or modify it.
+
+    - Local state vs. other types of state:
+
+        Local state (useState) — one component only
+        Lifted state — moved to a parent and passed down as props
+        Global state (Context, Redux, Zustand) — shared across many components
+
+        As a rule of thumb: keep state as local as possible, and only lift or globalize it when multiple components genuinely need it.
+
+- Side effect
+    - A side effect is anything your function does beyond just returning a value — 
+    it "affects" something on the side.
+
+theory location: 
+mycollection folder > ss
+React Hooks
+-----------------------------------------------------------------------------
