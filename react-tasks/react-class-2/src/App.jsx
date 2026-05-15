@@ -23,11 +23,41 @@ function App() {
         // setCount((previousValue)=> previousValue + 1);
         // console.log("after", count);
         setCount((previousValue)=> {
-          console.log("before", count);
-          console.log("before", previousValue);
+          console.log("previousValue 1st", previousValue);
+          
+          // console.log("before", count);
+          // console.log("before", previousValue);
         return previousValue + 1;
         // console.log("after", count);
         });
+
+        // setCount((previousValue)=> {
+        //     console.log("previousValue 2nd", previousValue);
+        // return previousValue + 1;
+   
+        // });
+        // setCount((previousValue)=> {
+        //    console.log("previousValue 3rd", previousValue);
+        // return previousValue + 1;
+
+        // });
+        // setCount((previousValue)=> {
+        //    console.log("previousValue 4th (last: before adding last 1 count)", previousValue);
+        // return previousValue + 1;
+        // });
+     
+        console.log(count);
+        
+      }
+// count as per any given value ------------
+      function handleCountChosenValue(value){
+   
+        setCount((prev)=>{
+          return prev + value;
+        })
+     
+        console.log(count);
+        
       }
   return (
     <>
@@ -53,6 +83,9 @@ function App() {
         {/* using useState */}
         <h1>Count {count} </h1>
         <button onClick={handleCount}>Count Button</button>
+        {/* <button onClick={handleCount()}>Count Button</button>  XXXX */}
+        {/* chosen value count */}
+         <button onClick={()=>handleCountChosenValue(10)}>Count Button {count} </button>
     </>
   )
 }

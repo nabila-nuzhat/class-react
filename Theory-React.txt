@@ -49,6 +49,11 @@ https://react.dev/learn
 
         Diffing (short for "differencing") is the process of comparing two versions of something to find what changed.
 
+
+        - Rerenders when Prop and State changes
+        eg.   X <button onClick={handleCount()}>Count Button</button> X X
+            <button onClick={handleCount}>Count Button</button> ----correct
+        not () is not used in react, bcz it will fall in infinite loop
 ---------------------
 - Vite
     Vite is a modern frontend build tool created by Evan You (the creator of Vue.js). The name means "fast" in French — and that's exactly what it's built for.
@@ -222,6 +227,8 @@ mycollection folder > ss
     - react hook starts with the keyword "use"
     - A React Hook is a special function that lets you "hook into" React features (like state and lifecycle) 
       from functional components — no class components needed.
+    - to solve the class component vs functional component's limitations Hook is added.
+    - near arounf 17 hooks.
 
 - States
     - useState — adds local state to a component
@@ -277,4 +284,34 @@ useState syntax
 theory location: 
 mycollection folder > ss
 useState setCount increment Bug-Claude + Deepseek
+
+
+- useState state update mechanism in React 
+
+theory location: 
+mycollection folder > ss
+useState state update mechanism in React
 -----------------------------------------------------------------------------
+
+- onClick handler function reference vs invocation_Parantheses use
+    -   {/* using useState */}
+        <h1>Count {count} </h1>
+        <button onClick={handleCount}>Count Button</button>
+        {/* <button onClick={handleCount()}>Count Button</button>  XXXX */}
+
+    - if onClick Function needs a parameter use a call back function to pass the parameter
+    - if no parameter write only the reference of the function
+
+theory location: 
+mycollection folder > ss
+onClick handler function reference vs invocation_Parantheses use
+-----------------------------------------------------------------------------
+
+- React hooks and functional & class component limitations
+
+theory location: 
+mycollection folder > ss
+
+-----------------------------------------------------------------------------
+
+
