@@ -314,4 +314,20 @@ mycollection folder > ss
 
 -----------------------------------------------------------------------------
 
+- React lifecycle in functional components
+    - state change > render
+    - functional components manage their lifecycle through Hooks, primarily useEffect ??
+        - Functional components manage their lifecycle through Hooks, primarily useEffect" means that in modern React (16.8+), functional components—which are originally stateless functions—can now handle actions that happen at specific times, such as when a component appears on the screen (mounting), updates (props or state change), or disappears (unmounting).The useEffect hook replaces the old class-based lifecycle methods (componentDidMount, componentDidUpdate, componentWillUnmount) by unifying them into a single API to manage "side effects" - google
+- React Mount Unmount 
 
+theory location: 
+mycollection folder > ss
+
+functional components manage their lifecycle through Hooks_primarily useEffect what does it mean-google
+
+React Mount Unmount Explained-Deepseek
+
+React lifecycle in functional components- claude
+
+React lifecycle in functional components-google
+-----------------------------------------------------------------------------
