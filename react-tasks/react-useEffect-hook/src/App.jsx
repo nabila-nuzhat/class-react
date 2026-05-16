@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 
-
 function App() {
   // show alert after the page renders
   //  alert("what'sup!");
@@ -13,20 +12,23 @@ useEffect(()=>{
   alert("what'sup!");
 },[])
 
-// useEffect on count deps
+// useEffect on count deps -------------------
 const [count, setCount] = useState(0);
 const [count2, setCount2] = useState(0);
 
+// handleCountEffect button 1
 function handleCountEffect(){
   setCount((prev)=> {
    return prev + 1;
   });
 }
+// handleCountEffect button 2
 function handleCountEffect2(){
   setCount2((prev)=> {
    return prev + 1;
   });
 }
+//  connected to button 1 : count dependency, no connection with button 2 
 useEffect(()=>{
   console.log("let's count and see the effect");
 },[count])
@@ -37,6 +39,7 @@ useEffect(()=>{
      <h1>Hola!!</h1>
      <h2>Count and useEffect {count} </h2>
      <button onClick={handleCountEffect}>useEffect Count</button>
+{/*  no connection with useEffect() */}
      <button onClick={handleCountEffect2}> Count2 useState no connection with useEffect {count2}</button>
     </>
   )

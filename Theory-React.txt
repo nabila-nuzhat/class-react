@@ -113,6 +113,8 @@ https://react.dev/learn
             - Scaffolding Your First Vite Project
             Vite is a modern frontend build tool that provides an extremely fast development experience
             "Scaffolding" means generating a starter project structure automatically.
+    -  vite hot updated App jsx- on console mean-google
+        It's basically a confirmation that Vite (your development server) just updated your app's code in real-time without you needing to refresh the page manually.Here is the breakdown of what happened:Hot Module Replacement (HMR): Vite uses a technology called HMR. Instead of reloading the entire website every time you save a change, it only replaces the specific piece of code you edited.The Message: [vite] hot updated: /src/App.jsx specifically tells you that Vite detected a save in your App.jsx file and pushed those changes directly into the running browser session.The Result: You see your UI updates instantly while keeping the current "state" of your application (like the count in your "Count and useEffect" example) intact.Why is this helpful?It makes development much faster because you don't lose your place in the app or wait for a full page reload every time you fix a typo or change a style.
 
 -----------------------------------
 
