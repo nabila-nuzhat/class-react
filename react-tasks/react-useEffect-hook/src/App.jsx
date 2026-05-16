@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react"
+import Button from "./components/Button";
 
 function App() {
+const [count, setCount] = useState(0);
+const [count2, setCount2] = useState(0);
+const [count3, setCount3] = useState(0);
+
   // show alert after the page renders
   //  alert("what'sup!");
 
@@ -13,8 +18,12 @@ useEffect(()=>{
 },[])
 
 // useEffect on count deps -------------------
-const [count, setCount] = useState(0);
-const [count2, setCount2] = useState(0);
+//  connected to button 1 : count dependency, no connection with button 2 
+
+useEffect(()=>{
+  console.log("let's count and see the effect");
+},[count])
+
 
 // handleCountEffect button 1
 function handleCountEffect(){
@@ -28,10 +37,7 @@ function handleCountEffect2(){
    return prev + 1;
   });
 }
-//  connected to button 1 : count dependency, no connection with button 2 
-useEffect(()=>{
-  console.log("let's count and see the effect");
-},[count])
+
 
 
   return (
@@ -41,6 +47,14 @@ useEffect(()=>{
      <button onClick={handleCountEffect}>useEffect Count</button>
 {/*  no connection with useEffect() */}
      <button onClick={handleCountEffect2}> Count2 useState no connection with useEffect {count2}</button>
+
+     {/* set Count with Button component */}
+<h2>Component Button: {count} </h2>
+     <Button onClickCount={handleCountEffect} text={"useEffect Count Component"} />
+{/* setcount function directly written as prop inside component */}
+{/* <h3> direct setcount function : {count3} </h3> */}
+     <Button onClickCount = {()=> setCount3((prev)=>prev+1)} text={`Count: Component w/o effect ${count3}`} />
+     {/* <Button onClickCount = {()=> setCount3((prev)=>prev+1)} text={`Count: Component w/o effect`} /> */}
     </>
   )
 }
