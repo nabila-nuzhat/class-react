@@ -26,6 +26,10 @@ https://react.dev/learn
 --------------------------
 - Rendering vs Loading in SPAs
     - two distinct phases in a Single Page Application's lifecycle:
+    - react re-renders 2 reason:
+        1. state change
+        2. props change
+    - 1st renders then side effect happen
 
     Loading:
         Loading refers to fetching the resources and data needed to display something.
@@ -257,6 +261,7 @@ mycollection folder > ss
 - Side effect
     - A side effect is anything your function does beyond just returning a value — 
     it "affects" something on the side.
+    - side effect happens after the dom render
 
 theory location: 
 mycollection folder > ss
