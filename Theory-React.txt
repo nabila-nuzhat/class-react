@@ -268,7 +268,6 @@ React Hooks
 theory location: 
 mycollection folder > ss
 useState syntax
------------------------------------------------------------------------------
 
 - useState() Mutation of states's current state:
     - // These hooks skip recalculating if state hasn't changed
@@ -331,3 +330,33 @@ React lifecycle in functional components- claude
 
 React lifecycle in functional components-google
 -----------------------------------------------------------------------------
+
+- useEffect dependency array: 
+    - syntax: useEffect(() => {
+                // Effect code here (runs after render)
+            }, [dependencies]);
+
+
+            useEffect(() => {
+            // effect
+            }, [dependency1, dependency2]);
+
+
+    - // 1. No array → runs after EVERY render
+            useEffect(() => {
+            console.log("runs every time");
+            });
+
+        // 2. Empty array [] → runs ONCE (on mount only)
+            useEffect(() => {
+            console.log("runs once");
+            }, []);
+
+        // 3. With values → runs when those values change
+            useEffect(() => {
+            console.log("runs when count changes");
+            }, [count]);
+
+        - Why an Array Specifically?
+            Arrays are ordered and iterable — React needs to loop through each dependency and compare it with the previous render's values using Object.is() (strict equality). An array makes this straightforward
+
