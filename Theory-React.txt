@@ -18,6 +18,11 @@ https://react.dev/learn
     - From web sites to phone apps, everything on the screen can be broken down into components.
     - React applications are built from isolated pieces of UI called components 
 
+- React Visualize Website: https://react.gg/visualized
+    - The History of the Web:
+    In order to truly appreciate React, you first have to understand the historical context for why React was created. 
+    From jQuery, to Backbone, to AngularJS – each era inspired React in different ways.
+
 --------------------------
 - Rendering vs Loading in SPAs
     - two distinct phases in a Single Page Application's lifecycle:
