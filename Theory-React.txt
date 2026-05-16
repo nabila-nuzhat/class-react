@@ -6,6 +6,7 @@ https://react.dev/learn
     -  React component is a JavaScript function that you can sprinkle with markup
     - React applications are built from isolated pieces of UI called components.
     - Components are one of the core concepts of React. They are the foundation upon which you build user interfaces (UI),  
+    - Components are isolated. each of their's useEffect will not effect another's useEffect
 
 
 - React:
@@ -330,7 +331,7 @@ React lifecycle in functional components- claude
 
 React lifecycle in functional components-google
 -----------------------------------------------------------------------------
-
+- useEffect()
 - useEffect dependency array: 
     - syntax: useEffect(() => {
                 // Effect code here (runs after render)
@@ -360,3 +361,19 @@ React lifecycle in functional components-google
         - Why an Array Specifically?
             Arrays are ordered and iterable — React needs to loop through each dependency and compare it with the previous render's values using Object.is() (strict equality). An array makes this straightforward
 
+        - useEffect() function cannot be async/ async await 
+            - Why useEffect cannot be async - claude
+
+- useEffect Alert timing and render order in React useEffect Alert timing and render order in React useEffect : claude
+
+theory location: 
+mycollection folder > ss
+
+---------------------------------------
+
+- render, re-render, reload, and refresh - claude
+
+theory location: 
+mycollection folder > ss
+
+---------------------------------------
