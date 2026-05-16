@@ -1,4 +1,5 @@
 - React Components: ------------
+
 https://react.dev/learn
     - React apps are made out of components. 
     - component is a piece of the UI (user interface) that has its own logic and appearance. 
@@ -8,7 +9,7 @@ https://react.dev/learn
     - Components are one of the core concepts of React. They are the foundation upon which you build user interfaces (UI),  
     - Components are isolated. each of their's useEffect will not effect another's useEffect
 
-
+    - Button prop naming error resolve-claude
 - React:
     - React is a JavaScript library 
     - for rendering user interfaces (UI)
@@ -245,6 +246,8 @@ mycollection folder > ss
         Global state (Context, Redux, Zustand) — shared across many components
 
         As a rule of thumb: keep state as local as possible, and only lift or globalize it when multiple components genuinely need it.
+
+    - Button prop naming error resolve-claude
 
 - Side effect
     - A side effect is anything your function does beyond just returning a value — 
