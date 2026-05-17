@@ -154,6 +154,7 @@ mycollection folder > ss
 -----------------------------
 
 - Understanding eslint.config.js
+
 theory location: 
 mycollection folder > ss
 -----------------------------
@@ -242,6 +243,7 @@ mycollection folder > ss
       from functional components — no class components needed.
     - to solve the class component vs functional component's limitations Hook is added.
     - near arounf 17 hooks.
+    - useState useEffect writing convention - claude: ss
 
 - States
     - useState — adds local state to a component
@@ -392,3 +394,18 @@ theory location:
 mycollection folder > ss
 
 ---------------------------------------
+
+- Js function focus(): mdn
+    - document.getElementById("").focus();
+    - react will not allow this only in js
+    bcz it is direct DOM manipulation by document.getElementById.
+    It's against the React's controlling of UI by virtual DOM
+
+
+---------------------------------------------
+
+- useRef():
+    - forwardRef vs ref: ss useRef
+
+theory location: 
+mycollection folder > ss : useRef  
