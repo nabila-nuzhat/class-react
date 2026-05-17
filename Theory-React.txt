@@ -10,6 +10,7 @@ https://react.dev/learn
     - Components are isolated. each of their's useEffect will not effect another's useEffect
 
     - Button prop naming error resolve-claude
+    - Multiple functions in one button component- claude
 - React:
     - React is a JavaScript library 
     - for rendering user interfaces (UI)
@@ -406,6 +407,9 @@ mycollection folder > ss
 
 - useRef():
     - forwardRef vs ref: ss useRef
+    - what does useRef() does not store UI data mean? doesnt it persists the object ?
+        - useState updates useRef value to UI-claude answer
+        - Input field focus behavior vs useRef in React - claude
 
 theory location: 
 mycollection folder > ss : useRef  

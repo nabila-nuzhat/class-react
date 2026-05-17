@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Button from "./components/Button";
+import Input from "./components/Input";
 
 function App() {
 const [count, setCount] = useState(0);
@@ -24,6 +25,10 @@ useEffect(()=>{
   console.log("let's count and see the effect");
 },[count])
 
+/* useRef() -------------------------- 
+  2nd useRef() is for Input Component */
+const inputRef = useRef(null); 
+const inputRefComponent = useRef(null); 
 
 // handleCountEffect button 1
 function handleCountEffect(){
@@ -55,6 +60,17 @@ function handleCountEffect2(){
 {/* <h3> direct setcount function : {count3} </h3> */}
      <Button onClickCount = {()=> setCount3((prev)=>prev+1)} text={`Count: Component w/o effect ${count3}`} />
      {/* <Button onClickCount = {()=> setCount3((prev)=>prev+1)} text={`Count: Component w/o effect`} /> */}
+
+
+{/* useRef()--------------- */}
+<h2>UseRef</h2>
+    <input type="email" ref={inputRef} />
+    <button onClick={()=>{inputRef.current.focus()}}>Guys Focus!</button>
+
+    {/* input component  */}
+<h2>UseRef: component</h2>
+    <Input inputRefComponent={inputRefComponent} />
+     <Button onClickCount ={()=>{inputRefComponent.current.focus()}} text={"Hey, Focus Lady!"}/>
     </>
   )
 }
