@@ -6,6 +6,16 @@ function App() {
 const [count, setCount] = useState(0);
 const [count2, setCount2] = useState(0);
 const [count3, setCount3] = useState(0);
+// storing and showing previous state of count in UI simultaneously with the changed curret state
+    const [count4, setCount4] = useState(0);
+    const previousStateValueCount4 = useRef(0);
+    useEffect(()=>{
+      /* show previous state value in this: <h3>Previous state {} </h3>
+        to store/ persist the previous state value use : useRef() in previousStateValueCount4.current
+      */
+      previousStateValueCount4.current = count4;
+    }, [count4])
+
 
   // show alert after the page renders
   //  alert("what'sup!");
@@ -71,6 +81,14 @@ function handleCountEffect2(){
 <h2>UseRef: component</h2>
     <Input inputRefComponent={inputRefComponent} />
      <Button onClickCount ={()=>{inputRefComponent.current.focus()}} text={"Hey, Focus Lady!"}/>
+
+
+{/* storing and showing previous state of count in UI simultaneously with the changed curret state  */}
+
+    <h4>Previous state {previousStateValueCount4.current} </h4>
+    <h3>New state value {count4} </h3>
+    <button onClick={()=>setCount4((prev)=>prev+1)} > Simultaneous both State </button>
+    
     </>
   )
 }
