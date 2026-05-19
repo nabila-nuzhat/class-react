@@ -417,3 +417,47 @@ mycollection folder > ss : useRef
 
 - APi calling: class 3
 
+random jokes api source github: https://github.com/15dkatz/official_joke_api
+https://official-joke-api.appspot.com/random_joke
+
+ 
+
+
+- Conditional Rendering:
+    - Conditional rendering in React - claude
+    - Ternary ? vs Optional Chaining ?. in Conditional Rendering
+        - ?. (Optional Chaining) is just the shorter, cleaner way to write the full ternary version.
+        - ?. is not "ternary + dot" — it's its own operator that just happens to use those two characters.
+        (Ternary Vs Optional chaining with Question mark operator_Conditional rendering - claude ss)
+
+
+- async await data in React:
+    - Displaying async await data in React-claude
+    - async/await types and promises
+    - why async await function is written as function expression in React?
+        - async can't go directly on the useEffect callback, so we create a separate async function inside it and call it manually.
+        ( why async await function is written as function expression- React - claude ss)
+        (Calling free APIs in React - claude ss)
+
+    - what happens if we dont use useEffect ? in Calling Api?
+        what happens if we dont use useEffect in Calling Api - claude ss
+        Displaying async await data in React - claude ss
+        - This causes an infinite loop:
+            Component renders
+                ↓
+            fetchUser() called
+                ↓
+            setUser(data) → triggers re-render
+                ↓
+            Component renders again
+                ↓
+            fetchUser() called again
+                ↓
+            setUser(data) → triggers re-render
+                ↓
+            ... forever 💀
+
+            useEffect with [] breaks the loop by saying:
+            - only run ONCE after first mount, never again
+             - [] = "don't re-run on re-renders"
+
