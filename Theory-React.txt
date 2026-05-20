@@ -11,6 +11,24 @@ https://react.dev/learn
 
     - Button prop naming error resolve-claude
     - Multiple functions in one button component- claude
+
+    - Child Components or more specifically Reusable Components (or just "components").
+        But more precisely, the industry uses these terms:
+
+        Component Categories by Role
+        Term                Examples                                Meaning
+        Root Component      App.jsx                                 Top of the tree
+        Page Components     Home.jsx, About.jsx                     Represent full pages
+        UI Components       Button.jsx, Navbar.jsx, Card.jsx        Reusable UI pieces
+        Layout Components   Header.jsx, Sidebar.jsx, Footer.jsx     Structure/skeleton of the page
+
+        Button.jsx and Navbar.jsx specifically fall under UI Components — the most common category, living in src/components/.
+        The general umbrella term most developers just say is:
+
+        "Components" — and when contrasted with App.jsx, they're called child components.
+        (also in the ss of "If else conditionals in React JSX" - claude - ss)
+        (also in the ss of  App jsx Main jsx component types - claude : ss )
+
 - React:
     - React is a JavaScript library 
     - for rendering user interfaces (UI)
@@ -175,6 +193,24 @@ mycollection folder > ss
 -----------------------------
 
 - Main.jsx vs App.jsx
+    - main.jsx does just one job — mount App into the DOM
+    - App.jsx is not a regular component — it's the Root Component, composes everything.
+      App.jsx is special. It sits at the top of the entire component tree
+    -  App and main are paired together — they work as the entry point duo.
+       Keeping them side by side in src/ makes that relationship obvious.
+    - App.jsx is above the component layer.
+      it owns and arranges components.
+      Button.jsx, Navbar.jsx etc: Reusable UI pieces.
+      "Components" — and when contrasted with App.jsx, they're called child components.
+    - main.jsx calls App once at startup to mount it. After that, 
+      React itself re-calls it whenever state or props change. You never call App() manually.
+        Eg. ReactDOM.createRoot(document.getElementById('root')).render(
+        <App />   // ← THIS is where App() gets called
+        );
+        This line is the only place App is ever explicitly invoked. React takes it from here.
+
+    (also in the ss of "If else conditionals in React JSX" - claude - ss)
+    (also in the ss of  App jsx Main jsx component types - claude : ss )
 - App.css vs index.css
 
 theory location: 
@@ -460,4 +496,25 @@ https://official-joke-api.appspot.com/random_joke
             useEffect with [] breaks the loop by saying:
             - only run ONCE after first mount, never again
              - [] = "don't re-run on re-renders"
+
+    - try catch in async await: 
+        - The key insight: async/await makes async code look sync — 
+        and try/catch is the sync way to handle errors, so they naturally go together.
+        - General rule: if the operation touches anything outside your program's control (network, disk, user, time, external code), wrap it. 
+        If it's pure internal logic, prefer validation over exception handling.
+        - Simple rule: if you can ask "is this valid?" before using it — do that. Reserve try/catch for when failure is truly out of your hands.
+        - try catch is an Exception Handling Control Flow Statement in JavaScript. 
+          is an Exception Handling in JS is Error Handling — a type of Control Flow Mechanism
+        for example:
+       Statements: 
+        ├── Declaration Statements   → var, let, const, function
+        ├── Expression Statements    → x = 5, foo()
+        ├── Control Flow Statements
+        │    ├── Conditional         → if, else, switch
+        │    ├── Loops               → for, while, do..while
+        │    ├── Jump                → break, continue, return
+        │    └── Exception Handling  → try/catch/finally, throw ✅
+        └── Other                   → import, export, debugger
+
+        (try catch blocks_use - claude - ss)
 
