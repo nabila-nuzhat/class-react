@@ -22,7 +22,7 @@ function App() {
       // setting the fetched and parsed data object as arguement of setJokesData() function, as state value to render/re-render, 
       setJokesData(data); //
   
-    } catch (error) {
+    } catch (error) { // ???????????? issue: error inside catch why local var unknown, why .message isnt shown in suggestion of vscode?
       setError(error.message);
     }
     finally {
