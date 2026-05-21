@@ -334,6 +334,8 @@ useState syntax
         In a small app mutation is like running a red light at 3am — you probably get away with it. In a big app it's running a red light in rush hour traffic — guaranteed crash, just a matter of when.
 
         React's rules exist not for simple counters, but for when your app has hundreds of components depending on the same state.
+
+        (also in ss : State changes VS Side effects in React - claude - ss)
         
 theory location: 
 mycollection folder > ss
@@ -419,6 +421,8 @@ React lifecycle in functional components-google
             - Why useEffect cannot be async - claude
 
 - useEffect Alert timing and render order in React useEffect Alert timing and render order in React useEffect : claude
+
+(also in ss State changes VS Side effects in React- claude - ss)
 
 theory location: 
 mycollection folder > ss
@@ -517,4 +521,18 @@ https://official-joke-api.appspot.com/random_joke
         └── Other                   → import, export, debugger
 
         (try catch blocks_use - claude - ss)
+        (Error State Throw Try Catch - claude - ss)
+-----------------------------------------
 
+- flag 
+    - A flag is just a boolean variable that acts as a signal.
+    - Any boolean used to represent an on/off condition is called a flag. It's just a naming convention, not a special React thing.
+
+    (State changes VS Side effects in React- claude - ss)
+
+------------------------------------------
+
+- Error handle & React state
+
+    (Error handle & React state - claude - ss)
+    (Error State Throw Try Catch - claude - ss)
