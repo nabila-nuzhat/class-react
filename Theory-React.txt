@@ -277,6 +277,14 @@ mycollection folder > ss
     2. Isolated CSS
     3. Module CSS
     4. Inline CSS
+    5. CSS framework like Tailwind css
+        - (Tailwind CSS plugin positioning with React Vite Config File - claude - ss)
+        - Importing Tailwind CSS in React index.css file: 
+            @import "tailwindcss" loads the entire Tailwind framework — base resets, utility classes, everything. This needs to happen once, globally, before anything else renders.
+
+        - can custom css code coninside with @import "tailwindcss" inside index.css? - claude
+        
+        (Importing Tailwind CSS in React indexCSS file - claude - ss)
 
 (what is Webpack bundlers- claude - ss )
 
