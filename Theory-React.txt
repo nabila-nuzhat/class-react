@@ -211,7 +211,12 @@ mycollection folder > ss
 
     (also in the ss of "If else conditionals in React JSX" - claude - ss)
     (also in the ss of  App jsx Main jsx component types - claude : ss )
+
 - App.css vs index.css
+    - style priority:
+        styles in App.css > styles in index.css
+    - styling First letter of first sibling in CSS
+    (First letter of first sibling in CSS_first-of-type VS first-child - claude - ss)
 
 theory location: 
 mycollection folder > ss

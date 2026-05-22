@@ -1,0 +1,22 @@
+/* - style priority:
+    styles in App.css > styles in index.css */
+p{
+    color: green;
+    font-weight: bold;
+    font-size: 100px;
+}
+
+h1{
+    color: fuchsia;
+}
+
+h3{
+    color: blueviolet;
+
+}
+
+
+h3:first-of-type::first-letter{
+    color: goldenrod;
+    font-size: 60px;
+}
