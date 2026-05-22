@@ -266,6 +266,18 @@ mycollection folder > ss
     - What does a bundler do?
         It takes all your separate files (JS, CSS, images, etc.) and combines + transforms them into optimized files the browser can load.
 
+- Inline CSS in React:
+    - written as Object pattern as attribute.
+      eg.  style = { {color: "red"} }
+
+      <p style={ { color:"red" } }> TExt </p>
+
+- Types of CSS used in React:
+    1. Global CSS
+    2. Isolated CSS
+    3. Module CSS
+    4. Inline CSS
+
 (what is Webpack bundlers- claude - ss )
 
 (CSS module override behavior - claude - ss)

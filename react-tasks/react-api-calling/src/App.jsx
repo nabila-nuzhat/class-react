@@ -13,10 +13,13 @@ function App() {
   // try catch to handle error- see more at theory-react
     try {
       const response = await fetch('https://official-joke-api.appspot.com/random_joke');
+      /* for Error Message Trial Check: forced error in link, style check: 
+          const response = await fetch('https://official-joke-api.appspot.com/rando_joke'); */ 
+      
 
   // catch Http error
       if (!response.ok) {
-        throw new Error(`HTTP error! Error status: ${response.status} ${response.statusText}`);
+        throw new Error(`HTTP error! Error status: ${response.status} ${response.statusText}`); // ${response.statusText} did not work
       }
   // data json
       const data = await response.json();
@@ -43,7 +46,8 @@ function App() {
     return <p>Loading.... Looooading...!!</p>
   }
   if (error) {
-    return <p>{error}</p>
+    // inline css as object
+    return <p style={{color:"red", fontSize:"20px", textDecoration:"underline"}}>{error}</p>
   }
   return (
     <>
