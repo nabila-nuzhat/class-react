@@ -1,0 +1,285 @@
+
+<style>
+  .root { padding: 1.5rem 0; font-family: var(--font-sans); }
+  .tabs { display: flex; gap: 6px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .tab { padding: 6px 14px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); color: var(--color-text-secondary); font-size: 13px; cursor: pointer; transition: all 0.15s; }
+  .tab.active { background: var(--color-background-secondary); color: var(--color-text-primary); border-color: var(--color-border-primary); font-weight: 500; }
+  .tab:hover:not(.active) { background: var(--color-background-secondary); }
+  .panel { display: none; }
+  .panel.active { display: block; }
+  pre { margin: 0; white-space: pre; overflow-x: auto; font-family: var(--font-mono); font-size: 13px; line-height: 1.6; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1.25rem; border: 0.5px solid var(--color-border-tertiary); color: var(--color-text-primary); }
+  .kw { color: #7F77DD; }
+  .fn { color: #1D9E75; }
+  .str { color: #D85A30; }
+  .cm { color: var(--color-text-tertiary); font-style: italic; }
+  .num { color: #BA7517; }
+  .demo-area { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1.25rem; border: 0.5px solid var(--color-border-tertiary); }
+  .error-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .error-table th { text-align: left; font-weight: 500; font-size: 12px; color: var(--color-text-secondary); padding: 0 8px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .error-table td { padding: 8px; border-bottom: 0.5px solid var(--color-border-tertiary); vertical-align: top; }
+  .error-table tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: var(--border-radius-md); font-size: 11px; font-weight: 500; }
+  .badge-red { background: #FCEBEB; color: #791F1F; }
+  .badge-amber { background: #FAEEDA; color: #633806; }
+  .badge-blue { background: #E6F1FB; color: #0C447C; }
+  .badge-gray { background: #F1EFE8; color: #444441; }
+  .sim-btn { padding: 6px 14px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); color: var(--color-text-primary); font-size: 12px; cursor: pointer; margin: 4px; }
+  .sim-btn:hover { background: var(--color-background-secondary); }
+  .error-box { border-radius: var(--border-radius-md); padding: 10px 14px; font-size: 13px; display: flex; align-items: flex-start; gap: 10px; margin-top: 12px; }
+  .error-network { background: #FAEEDA; border: 0.5px solid #EF9F27; color: #633806; }
+  .error-auth { background: #FCEBEB; border: 0.5px solid #F09595; color: #791F1F; }
+  .error-rate { background: #FAEEDA; border: 0.5px solid #EF9F27; color: #633806; }
+  .error-server { background: #FCEBEB; border: 0.5px solid #F09595; color: #791F1F; }
+  .error-parse { background: #E6F1FB; border: 0.5px solid #85B7EB; color: #0C447C; }
+  .error-timeout { background: #FAEEDA; border: 0.5px solid #EF9F27; color: #633806; }
+  .error-abort { background: #F1EFE8; border: 0.5px solid #B4B2A9; color: #444441; }
+  .error-icon { font-size: 16px; margin-top: 1px; }
+  .success-box { background: #EAF3DE; border: 0.5px solid #97C459; color: #27500A; border-radius: var(--border-radius-md); padding: 10px 14px; font-size: 13px; display: flex; align-items: center; gap: 8px; margin-top: 12px; }
+  .loading-box { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 14px; font-size: 13px; color: var(--color-text-secondary); display: flex; align-items: center; gap: 8px; margin-top: 12px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--color-border-tertiary); border-top-color: var(--color-text-secondary); border-radius: 50%; animation: spin 0.7s linear infinite; }
+  .hidden { display: none; }
+  .label { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 8px; }
+</style>
+
+<div class="root">
+  <h2 class="sr-only">API error handling in React — interactive reference</h2>
+  <div class="tabs">
+    <button class="tab active" onclick="show('types')">Error types</button>
+    <button class="tab" onclick="show('util')">Error classifier</button>
+    <button class="tab" onclick="show('hook')">useFetch hook</button>
+    <button class="tab" onclick="show('component')">ErrorMessage UI</button>
+    <button class="tab" onclick="show('demo')">Live demo</button>
+  </div>
+
+  <div id="types" class="panel active">
+    <table class="error-table">
+      <thead>
+        <tr>
+          <th>Type</th><th>When it occurs</th><th>Caught by</th><th>Severity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>NetworkError</code></td><td>No internet, DNS fail, CORS block</td><td><code>catch(e)</code> — fetch throws</td><td><span class="badge badge-red">High</span></td></tr>
+        <tr><td><code>TimeoutError</code></td><td>AbortController timeout exceeded</td><td><code>catch(e)</code> — name is <code>AbortError</code></td><td><span class="badge badge-amber">Medium</span></td></tr>
+        <tr><td><code>AbortError</code></td><td>Manual <code>controller.abort()</code> call</td><td><code>catch(e)</code> — check <code>e.name</code></td><td><span class="badge badge-gray">Low</span></td></tr>
+        <tr><td><code>401 Unauthorized</code></td><td>Missing or expired token</td><td><code>if (!res.ok)</code></td><td><span class="badge badge-red">High</span></td></tr>
+        <tr><td><code>403 Forbidden</code></td><td>Valid token, no permission</td><td><code>if (!res.ok)</code></td><td><span class="badge badge-red">High</span></td></tr>
+        <tr><td><code>404 Not Found</code></td><td>Wrong URL or deleted resource</td><td><code>if (!res.ok)</code></td><td><span class="badge badge-amber">Medium</span></td></tr>
+        <tr><td><code>429 Too Many Requests</code></td><td>Rate limit hit</td><td><code>if (!res.ok)</code></td><td><span class="badge badge-amber">Medium</span></td></tr>
+        <tr><td><code>500 Server Error</code></td><td>Backend crash or bug</td><td><code>if (!res.ok)</code></td><td><span class="badge badge-red">High</span></td></tr>
+        <tr><td><code>ParseError</code></td><td>Response body isn't valid JSON</td><td><code>catch(e)</code> around <code>res.json()</code></td><td><span class="badge badge-blue">Info</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="util" class="panel">
+<pre><span class="cm">// utils/apiError.js</span>
+
+<span class="cm">// Custom error class to carry status + type</span>
+<span class="kw">export class</span> <span class="fn">ApiError</span> <span class="kw">extends</span> Error {
+  <span class="fn">constructor</span>(message, type, status) {
+    <span class="kw">super</span>(message);
+    <span class="kw">this</span>.type   = type;   <span class="cm">// 'network' | 'timeout' | 'abort' | 'http' | 'parse'</span>
+    <span class="kw">this</span>.status = status; <span class="cm">// HTTP status code (if any)</span>
+  }
+}
+
+<span class="cm">// Maps any thrown error → ApiError with a user-friendly message</span>
+<span class="kw">export function</span> <span class="fn">classifyError</span>(err, res) {
+  <span class="kw">if</span> (res) {
+    <span class="kw">const</span> messages = {
+      <span class="num">400</span>: <span class="str">"Invalid request. Please check your input."</span>,
+      <span class="num">401</span>: <span class="str">"Session expired. Please sign in again."</span>,
+      <span class="num">403</span>: <span class="str">"You don't have permission to do this."</span>,
+      <span class="num">404</span>: <span class="str">"Resource not found."</span>,
+      <span class="num">408</span>: <span class="str">"Request timed out. Please try again."</span>,
+      <span class="num">409</span>: <span class="str">"Conflict — resource may already exist."</span>,
+      <span class="num">422</span>: <span class="str">"Validation error. Check your data."</span>,
+      <span class="num">429</span>: <span class="str">"Too many requests. Please wait a moment."</span>,
+      <span class="num">500</span>: <span class="str">"Server error. We're working on it."</span>,
+      <span class="num">502</span>: <span class="str">"Bad gateway. Server may be down."</span>,
+      <span class="num">503</span>: <span class="str">"Service unavailable. Try again soon."</span>,
+      <span class="num">504</span>: <span class="str">"Gateway timed out. Try again."</span>,
+    };
+    <span class="kw">const</span> msg = messages[res.status] ?? <span class="str">`Unexpected error (${res.status})`</span>;
+    <span class="kw">return new</span> <span class="fn">ApiError</span>(msg, <span class="str">'http'</span>, res.status);
+  }
+
+  <span class="kw">if</span> (err.name === <span class="str">'AbortError'</span>) {
+    <span class="kw">return new</span> <span class="fn">ApiError</span>(
+      err._isTimeout
+        ? <span class="str">"Request timed out. Check your connection."</span>
+        : <span class="str">"Request was cancelled."</span>,
+      err._isTimeout ? <span class="str">'timeout'</span> : <span class="str">'abort'</span>
+    );
+  }
+
+  <span class="kw">if</span> (err.name === <span class="str">'SyntaxError'</span>) {
+    <span class="kw">return new</span> <span class="fn">ApiError</span>(<span class="str">"Invalid response from server."</span>, <span class="str">'parse'</span>);
+  }
+
+  <span class="kw">return new</span> <span class="fn">ApiError</span>(<span class="str">"Network error. Check your connection."</span>, <span class="str">'network'</span>);
+}</pre>
+  </div>
+
+  <div id="hook" class="panel">
+<pre><span class="cm">// hooks/useFetch.js</span>
+<span class="kw">import</span> { useState, useEffect, useRef } from <span class="str">'react'</span>;
+<span class="kw">import</span> { classifyError } from <span class="str">'../utils/apiError'</span>;
+
+<span class="kw">export function</span> <span class="fn">useFetch</span>(url, options = {}) {
+  <span class="kw">const</span> [state, setState] = <span class="fn">useState</span>({
+    data:    <span class="kw">null</span>,
+    error:   <span class="kw">null</span>,   <span class="cm">// ApiError | null</span>
+    loading: <span class="kw">false</span>,
+  });
+  <span class="kw">const</span> abortRef = <span class="fn">useRef</span>(<span class="kw">null</span>);
+
+  <span class="kw">useEffect</span>(() => {
+    <span class="kw">const</span> controller = <span class="kw">new</span> AbortController();
+    abortRef.current = controller;
+
+    <span class="cm">// Optional: auto-abort after N ms</span>
+    <span class="kw">const</span> TIMEOUT_MS = options.timeout ?? <span class="num">10_000</span>;
+    <span class="kw">const</span> timer = <span class="fn">setTimeout</span>(() => {
+      controller.signal._isTimeout = <span class="kw">true</span>; <span class="cm">// flag for classifier</span>
+      controller.<span class="fn">abort</span>();
+    }, TIMEOUT_MS);
+
+    <span class="kw">async function</span> <span class="fn">fetchData</span>() {
+      setState(s => ({ ...s, loading: <span class="kw">true</span>, error: <span class="kw">null</span> }));
+      <span class="kw">let</span> res = <span class="kw">null</span>;
+
+      <span class="kw">try</span> {
+        res = <span class="kw">await</span> <span class="fn">fetch</span>(url, { ...options, signal: controller.signal });
+
+        <span class="kw">if</span> (!res.ok) <span class="kw">throw new</span> Error(); <span class="cm">// trigger classifyError with res</span>
+
+        <span class="kw">const</span> data = <span class="kw">await</span> res.<span class="fn">json</span>(); <span class="cm">// SyntaxError caught below</span>
+        setState({ data, error: <span class="kw">null</span>, loading: <span class="kw">false</span> });
+
+      } <span class="kw">catch</span> (err) {
+        <span class="kw">if</span> (controller.signal.aborted && !controller.signal._isTimeout) {
+          <span class="kw">return</span>; <span class="cm">// intentional cancel — don't update state</span>
+        }
+        setState({
+          data:    <span class="kw">null</span>,
+          error:   <span class="fn">classifyError</span>(err, res?.ok === <span class="kw">false</span> ? res : <span class="kw">null</span>),
+          loading: <span class="kw">false</span>,
+        });
+      } <span class="kw">finally</span> {
+        <span class="fn">clearTimeout</span>(timer);
+      }
+    }
+
+    <span class="fn">fetchData</span>();
+    <span class="kw">return</span> () => controller.<span class="fn">abort</span>(); <span class="cm">// cleanup on unmount</span>
+  }, [url]);
+
+  <span class="kw">return</span> state; <span class="cm">// { data, error, loading }</span>
+}
+
+<span class="cm">// Usage in a component:</span>
+<span class="cm">// const { data, error, loading } = useFetch('/api/users', { timeout: 5000 });</span></pre>
+  </div>
+
+  <div id="component" class="panel">
+<pre><span class="cm">// components/ErrorMessage.jsx</span>
+<span class="kw">const</span> CONFIG = {
+  network: { icon: <span class="str">'🌐'</span>, retry: <span class="kw">true</span>,  color: <span class="str">'amber'</span> },
+  timeout: { icon: <span class="str">'⏱'</span>,  retry: <span class="kw">true</span>,  color: <span class="str">'amber'</span> },
+  abort:   { icon: <span class="str">'✕'</span>,   retry: <span class="kw">false</span>, color: <span class="str">'gray'</span>  },
+  parse:   { icon: <span class="str">'⚠'</span>,   retry: <span class="kw">false</span>, color: <span class="str">'blue'</span>  },
+  http:    { icon: <span class="str">'⚡'</span>,  retry: <span class="kw">true</span>,  color: <span class="str">'red'</span>   },
+};
+
+<span class="cm">// Retry-able status codes</span>
+<span class="kw">const</span> RETRYABLE = [<span class="num">408</span>, <span class="num">429</span>, <span class="num">500</span>, <span class="num">502</span>, <span class="num">503</span>, <span class="num">504</span>];
+
+<span class="kw">export function</span> <span class="fn">ErrorMessage</span>({ error, onRetry }) {
+  <span class="kw">if</span> (!error) <span class="kw">return null</span>;
+
+  <span class="kw">const</span> cfg = CONFIG[error.type] ?? CONFIG.http;
+  <span class="kw">const</span> canRetry = cfg.retry
+    && (<span class="kw">typeof</span> error.status === <span class="str">'undefined'</span> || RETRYABLE.includes(error.status));
+
+  <span class="kw">return</span> (
+    &lt;div role=<span class="str">"alert"</span> className={<span class="str">`error-banner error-${cfg.color}`</span>}&gt;
+      &lt;span className=<span class="str">"error-icon"</span>&gt;{cfg.icon}&lt;/span&gt;
+      &lt;div className=<span class="str">"error-body"</span>&gt;
+        &lt;p className=<span class="str">"error-msg"</span>&gt;{error.message}&lt;/p&gt;
+        {error.status && &lt;p className=<span class="str">"error-code"</span>&gt;Code: {error.status}&lt;/p&gt;}
+      &lt;/div&gt;
+      {canRetry && onRetry && (
+        &lt;button onClick={onRetry} className=<span class="str">"retry-btn"</span>&gt;Retry&lt;/button&gt;
+      )}
+    &lt;/div&gt;
+  );
+}
+
+<span class="cm">// Usage:</span>
+<span class="cm">// &lt;ErrorMessage error={error} onRetry={() => setRetryKey(k => k + 1)} /&gt;</span></pre>
+  </div>
+
+  <div id="demo" class="panel">
+    <div class="demo-area">
+      <div class="label">Simulate an API error to see the dynamic message:</div>
+      <div>
+        <button class="sim-btn" onclick="simulate('network')">Network error</button>
+        <button class="sim-btn" onclick="simulate('401')">401 Auth</button>
+        <button class="sim-btn" onclick="simulate('429')">429 Rate limit</button>
+        <button class="sim-btn" onclick="simulate('500')">500 Server</button>
+        <button class="sim-btn" onclick="simulate('timeout')">Timeout</button>
+        <button class="sim-btn" onclick="simulate('parse')">Parse error</button>
+        <button class="sim-btn" onclick="simulate('success')">✓ Success</button>
+      </div>
+
+      <div id="status-box" class="hidden"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+const ERROR_MAP = {
+  network: { cls: 'error-network', icon: 'ti-wifi-off', msg: 'Network error. Check your connection.', code: null, retry: true },
+  401:     { cls: 'error-auth',    icon: 'ti-lock',     msg: 'Session expired. Please sign in again.', code: 401, retry: false },
+  429:     { cls: 'error-rate',    icon: 'ti-clock',    msg: 'Too many requests. Please wait a moment.', code: 429, retry: true },
+  500:     { cls: 'error-server',  icon: 'ti-server',   msg: "Server error. We're working on it.", code: 500, retry: true },
+  timeout: { cls: 'error-timeout', icon: 'ti-hourglass',msg: 'Request timed out. Check your connection.', code: null, retry: true },
+  parse:   { cls: 'error-parse',   icon: 'ti-code',     msg: 'Invalid response from server.', code: null, retry: false },
+  success: null,
+};
+
+function simulate(type) {
+  const box = document.getElementById('status-box');
+  box.className = 'loading-box';
+  box.classList.remove('hidden');
+  box.innerHTML = '<span class="spinner"></span> Fetching data...';
+
+  setTimeout(() => {
+    if (type === 'success') {
+      box.className = 'success-box';
+      box.innerHTML = '<i class="ti ti-circle-check" style="font-size:16px"></i> Data loaded successfully — { "users": 42, "active": 38 }';
+      return;
+    }
+    const e = ERROR_MAP[type];
+    box.className = `error-box ${e.cls}`;
+    box.innerHTML = `
+      <i class="ti ${e.icon} error-icon" aria-hidden="true" style="font-size:16px;margin-top:1px"></i>
+      <div style="flex:1">
+        <div style="font-weight:500;margin-bottom:2px">${e.msg}</div>
+        ${e.code ? `<div style="font-size:11px;opacity:0.75">HTTP ${e.code}</div>` : ''}
+      </div>
+      ${e.retry ? `<button class="sim-btn" style="font-size:11px;padding:4px 10px;margin:0" onclick="simulate('${type}')">Retry</button>` : ''}
+    `;
+  }, 800);
+}
+</script>

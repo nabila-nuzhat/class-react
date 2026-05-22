@@ -423,6 +423,7 @@ React lifecycle in functional components-google
 - useEffect Alert timing and render order in React useEffect Alert timing and render order in React useEffect : claude
 
 (also in ss State changes VS Side effects in React- claude - ss)
+(Function expressions vs declarations in async await inside or outside UseEffect - claude - ss)
 
 theory location: 
 mycollection folder > ss
@@ -476,8 +477,10 @@ https://official-joke-api.appspot.com/random_joke
     - async/await types and promises
     - why async await function is written as function expression in React?
         - async can't go directly on the useEffect callback, so we create a separate async function inside it and call it manually.
+        
         ( why async await function is written as function expression- React - claude ss)
         (Calling free APIs in React - claude ss)
+        (Function expressions vs declarations in async await inside or outside UseEffect - claude - ss)
 
     - what happens if we dont use useEffect ? in Calling Api?
         what happens if we dont use useEffect in Calling Api - claude ss
@@ -522,6 +525,7 @@ https://official-joke-api.appspot.com/random_joke
 
         (try catch blocks_use - claude - ss)
         (Error State Throw Try Catch - claude - ss)
+        (Function expressions vs declarations in async await inside or outside UseEffect - claude - ss)
 -----------------------------------------
 
 - flag 
@@ -536,3 +540,4 @@ https://official-joke-api.appspot.com/random_joke
 
     (Error handle & React state - claude - ss)
     (Error State Throw Try Catch - claude - ss)
+    (Function expressions vs declarations in async await inside or outside UseEffect - claude - ss)
