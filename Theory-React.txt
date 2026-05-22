@@ -215,8 +215,60 @@ mycollection folder > ss
 - App.css vs index.css
     - style priority:
         styles in App.css > styles in index.css
+        bcz whiever closest.
+
+
+- styling in React:
+    - isolate CSS as per component/ service etc
     - styling First letter of first sibling in CSS
     (First letter of first sibling in CSS_first-of-type VS first-child - claude - ss)
+
+- App.module.css (CSS Modules(professional)/ Module CSS)
+    - css written as object
+    - inside html tag: attribute:
+      className = {styles.tagName}
+    - tagnames will be written as classSelector inside App.module.css 
+      eg: .p .h1
+    - linking file:
+      import styles from "./App.module.css"
+    - developer friendly
+    - friendly for Typescript
+    - CSS module override behavior:
+        - CSS Modules vs Global CSS:
+            - App.css is a global stylesheet — its styles are injected into the page and apply to any matching element anywhere in the DOM.
+            
+            - App.module.css is a CSS Module — at build time, class names get transformed into unique hashed identifiers (e.g., .title → .App_title__3fK2m), scoped to the component.
+
+            - Webpack/bundlers typically inject CSS Modules after global CSS, so module styles appear later in the <style> tags → they win.
+        
+            - CSS Modules don't have any inherent priority — Module CSS win because of bundle injection order, not because of any special browser rule. The behavior can change if your bundler config changes.
+
+        - "CSS specificity" is the algorithm browsers use to decide 
+            which CSS rule wins when multiple rules target the same element.
+    - Definition:
+        - CSS Modules is a CSS file in which all class names are locally scoped by default — meaning styles only apply to the component that imports them, not globally.
+
+        - The "build tool" transforms class names into unique hashes at compile time: Build tool transforms .module.css class names into unique hashes. the hashing happens at build time, not in the browser.
+
+- Build tool VS Dev tool:
+    - "build tool", not browser dev tool.
+    - These are two different things:
+
+    - Build tool (e.g. Webpack, Vite) — runs during compilation, before the code reaches the browser. It's what transforms .module.css class names into unique hashes.
+    - Browser DevTools — runs in the browser after the page loads, used for inspecting and debugging.
+    So the hashing happens at build time, not in the browser.
+
+(Build tool VS Dev tool - claude - ss)
+
+- what is Webpack/bundlers
+    - Webpack is a specific, popular bundler. A bundler is the general category of tool.
+
+    - What does a bundler do?
+        It takes all your separate files (JS, CSS, images, etc.) and combines + transforms them into optimized files the browser can load.
+
+(what is Webpack bundlers- claude - ss )
+
+(CSS module override behavior - claude - ss)
 
 theory location: 
 mycollection folder > ss

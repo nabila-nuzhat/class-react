@@ -1,0 +1,8 @@
+.h1::first-letter{
+ font-style: italic;
+ font-size: 80px;
+}
+
+.h1{
+     color: rgb(163, 240, 8);
+}

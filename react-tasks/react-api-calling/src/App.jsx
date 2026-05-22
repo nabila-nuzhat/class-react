@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css"
+import styles from "./App.module.css" // CSS Module
 function App() {
 
   // render and re-render jokes data in UI - useState()
@@ -46,7 +47,7 @@ function App() {
   }
   return (
     <>
-      <h1> Jokes:</h1>
+      <h1 className={styles.h1}> Jokes!</h1> {/* using Css Module to apply style. syntax: Theory */}
       {/* before conditional rendering and try catch application (with ?. (optional chaining operator))  ----------------o/p */}
       {/*<h2> setup: {jokesData?.setup} </h2> */} {/* ?. (optional chaining operator) for conditional rendering */}
       {/*  <h2>punchline : {jokesData?.punchline} </h2> */}
