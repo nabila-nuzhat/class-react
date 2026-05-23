@@ -1,4 +1,5 @@
-@import "tailwindcss";
+/* tailwimd import in global css for gloabl entry point */
+@import "tailwindcss"; 
 
 p{
     color: coral;

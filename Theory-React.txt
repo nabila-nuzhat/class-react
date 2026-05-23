@@ -42,6 +42,30 @@ https://react.dev/learn
     In order to truly appreciate React, you first have to understand the historical context for why React was created. 
     From jQuery, to Backbone, to AngularJS – each era inspired React in different ways.
 
+- SPA ( Single Page Application )
+    - A Single Page Application is a web app that loads one HTML page once and dynamically updates content without full page reloads. 
+    - Navigation feels instant because only data is fetched from the server — not entire HTML pages.
+
+    - what is SPA ? Examples how multiple web pages of a website in SPA?
+        - (SPA explained - claude - ss)
+    - JS Router (client-side)Intercepts URL changes. what does in Intercepts URL changes mean?
+        - (SPA explained - claude - ss)
+    - Prevents the browser's default behavior (no server request). 
+    then how does it have the data and layout without server request? where does it store it that server request isnt needed?
+        - (SPA explained - claude - ss)
+    - where does the API belong and stored?
+        - (SPA explained - claude - ss)
+    - what does this mean? which pre-render pages on the server but then hydrate into a SPA experience.
+        - (SPA explained - claude - ss)
+    (SPA explained - claude - ss)
+
+
+- The JS bundle:
+    - The JS bundle (downloaded once): is it the Bundle created by bundlers like vite, webpack? 
+        - JS bundle downloaded once - claude
+
+- useNavigate():
+    (history pushState in JS and React Router useNavigate or Link -claude - ss)
 --------------------------
 - Rendering vs Loading in SPAs
     - two distinct phases in a Single Page Application's lifecycle:
