@@ -145,6 +145,7 @@ https://reactrouter.com/
         useNavigate()                 Hook to navigate programmatically (e.g., after form submit)
         useParams()                   Hook to read dynamic URL parameters like /user/:id
 
+    -  BrowserRouter  should come from react-router NOT from react-router-dom which is older. otherwise it wont work
 
 - The JS bundle:
     - The JS bundle (downloaded once): is it the Bundle created by bundlers like vite, webpack? 
