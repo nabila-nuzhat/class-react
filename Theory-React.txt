@@ -84,6 +84,66 @@ https://react.dev/learn
         - (SPA explained - claude - ss)
     (SPA explained - claude - ss)
 
+- React Router
+- Routing
+https://reactrouter.com/
+(Routing in React and React Router - claude - ss)
+    - React Router a package
+    - React Router is a multi-strategy router for React bridging the gap from React 18 to React 19. You can use it maximally as a React framework or as minimally as you want.
+
+    - Ways:
+        - There are three primary ways, or "modes", to use it in your app, there are three guides to get started.
+
+        1. Declarative: Most Common and Easier to understand.
+            - Declarative mode enables basic routing features like matching URLs to components, navigating around the app, and providing active states with APIs like <Link>, useNavigate, and useLocation.
+        2. Data : By moving route configuration outside of React rendering, Data Mode adds data loading, actions, pending states and more with APIs like loader, action, and useFetcher.
+            eg.
+            const router = createBrowserRouter([
+            {
+                path: "/",
+                element: <div>Hello World</div>,
+            },
+            ]);
+        3. Framework: 
+            Framework Mode wraps Data Mode with a Vite plugin to add the full React Router experience with:
+                type-safe href
+                type-safe Route Module API
+                intelligent code splitting
+                SPA, SSR, and static rendering strategies
+                and more
+            React Router itself is now optionally usable as a full-stack framework — not just a routing library.
+            It's not depending on or referring to Next.js, Remix (separately), Astro, or any other framework. React Router v7 IS the framework in this context.
+
+        NOTE: Claude: 
+            Declarative mode = just a router.
+            Framework mode = router + server + data layer.
+            If your app is purely a client-side SPA and SEO/performance aren't concerns, declarative is perfectly fine. But for anything public-facing or full-stack, Framework Mode gives you a much better foundation.
+
+        
+    - Reason_ReactDOM missing from Vite React project:
+        (Reason_ReactDOM missing from Vite React project - claude - ss) 
+
+- Routing (claude): 
+    - Routing is the mechanism that determines how an application responds to a specific URL or path. It maps URLs to specific content, pages, or functions.
+    There are two types:
+    1. Server-side routing — the browser requests a new page from the server on every URL change. The server processes the URL and returns a full HTML page. Traditional websites work this way.
+    2. Client-side routing — the browser handles URL changes without requesting a new page from the server. JavaScript intercepts navigation and swaps content dynamically. This is how modern Single Page Applications (SPAs) work.
+
+- React Router: (Claude)
+    - Routing in React
+        React builds SPAs — there's only one HTML file (index.html), and React renders everything dynamically. Without routing, the URL never changes, so you can't have distinct pages, shareable links, or browser back/forward navigation.
+        React itself has no built-in router, so you need a library — the most popular being React Router.
+
+    - What is React Router?
+        - React Router is the standard routing library for React. It lets you define which component to render based on the current URL path — all without a page reload.
+    - Core Concepts
+        Concept                       Description
+        <BrowserRouter>               Wraps your app and enables routing using the browser's History API
+        <Routes>                      Container that holds all your route definitions
+        <Route>                       Maps a URL path to a component
+        <Link>                        Replaces <a> tags — navigates without page reload
+        useNavigate()                 Hook to navigate programmatically (e.g., after form submit)
+        useParams()                   Hook to read dynamic URL parameters like /user/:id
 
 
 - The JS bundle:
