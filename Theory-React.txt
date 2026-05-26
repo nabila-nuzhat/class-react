@@ -94,6 +94,7 @@ https://reactrouter.com/
 (Outlet renders content without wrapping - claude - ss)
 (Route prefix - claude - ss )
 (Dynamic routing_Params in React - claude - ss )
+(Routing parameters symbols_Query Parameter_search Params_useSearchParams - claude - ss)
     - React Router a package
     - React Router is a multi-strategy router for React bridging the gap from React 18 to React 19. You can use it maximally as a React framework or as minimally as you want.
 
@@ -186,7 +187,17 @@ https://reactrouter.com/
         - When you define a route like /users/:id, the :id is the param. When someone visits /users/42, the param id has the value "42".
        
 
-
+    - Query Parameter ( ? )
+        - It's a question/filter sent to the server, not a location.
+        - Why ? exists in a URL — the tech origin
+            A URL's job is to locate a resource on a server:
+            https://example.com/users/42
+                                ↑
+                                path — finds the exact resource
+            But sometimes you don't want a different resource, you want the same resource behaved differently:
+                Show me products — but sorted, filtered, paginated
+            There's no separate "page" for every sort/filter combo. So the URL standard (RFC 3986) introduced ? as a separator meaning:
+        - useSearchParams() is the React Router hook that lets you read and write the query string part of the URL.
 
 - The JS bundle:
     - The JS bundle (downloaded once): is it the Bundle created by bundlers like vite, webpack? 
