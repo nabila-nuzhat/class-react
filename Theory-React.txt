@@ -95,6 +95,7 @@ https://reactrouter.com/
 (Route prefix - claude - ss )
 (Dynamic routing_Params in React - claude - ss )
 (Routing parameters symbols_Query Parameter_search Params_useSearchParams - claude - ss)
+(Protected layout side effect or state_Navigation Side Effect-useEffect Vs State-useState - claude - ss)
     - React Router a package
     - React Router is a multi-strategy router for React bridging the gap from React 18 to React 19. You can use it maximally as a React framework or as minimally as you want.
 
@@ -176,7 +177,7 @@ https://reactrouter.com/
              <Route /> 
          <Routes /> 
     
-    - Dynamic Route:
+    - Dynamic Route, Dynamic parameter:
        - : - starts with colon :
        -  React Router captures it and makes it available via useParams().
        - How Dynamic Routes Fetch Data?
@@ -198,6 +199,14 @@ https://reactrouter.com/
                 Show me products — but sorted, filtered, paginated
             There's no separate "page" for every sort/filter combo. So the URL standard (RFC 3986) introduced ? as a separator meaning:
         - useSearchParams() is the React Router hook that lets you read and write the query string part of the URL.
+    
+    - Route prefix:
+        - (Route prefix - claude - ss )
+
+    
+    - Protected Route
+        - When route of Navigation Trigger is Side Effect-useEffect Vs State-useState ?
+          (Protected layout side effect or state_Navigation Side Effect-useEffect Vs State-useState - claude - ss)
 
 - The JS bundle:
     - The JS bundle (downloaded once): is it the Bundle created by bundlers like vite, webpack? 
