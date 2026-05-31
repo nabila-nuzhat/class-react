@@ -218,6 +218,8 @@ https://reactrouter.com/
 
         - !user is useful when user could be null or undefined, 
           but not for detecting an empty object.
+        -  Object.keys(user) returns an array of strings.
+           if (Object.keys(user).length === 0): just checking if that array is empty — meaning the object has no keys.
 
 - The JS bundle:
     - The JS bundle (downloaded once): is it the Bundle created by bundlers like vite, webpack? 
@@ -225,6 +227,69 @@ https://reactrouter.com/
 
 - useNavigate():
     (history pushState in JS and React Router useNavigate or Link -claude - ss)
+
+- Props Drilling (Later)
+    - React's Problem
+    - to solve the problem of Props Drilling and State Management and to centralize state and to centralize state: 
+    1. Redux
+        - Redux is invented and used > Redux Toolkit (for easier use)
+        -  Redux Toolkit > store > Provider (to let React know that redux toolkit is used)
+            <Provider store = {store}>
+                <App/>
+            <Provider store />
+        
+        - for Bigger Applications Redux is used. bcz Redux has more power.
+        Redux + Context API can be used.
+
+        - Slice in Redux toolkit
+            - data
+            - in every Slice there will be an actions (like, modify, update etc)
+        
+        - useSelector Hook: 
+            - to get Data from "store" useSelector Hook is used.
+            -
+        - useDispatch Hook:
+            - to give data to "store" useDispatch Hook is used.
+            - each Dispatch takes an action.
+
+    2. Context API:
+        (to solve the problem of Props Drilling and State Management and to centralize state and State Management: )
+
+        - React brought Context API.
+        - for Smaller Applications Context API is used. bcz Context API has less power than Redux.
+        Redux + Context API can be used.
+
+    3. Zustand:
+        (to solve the problem of Props Drilling and State Management and to centralize state: )
+        - to make more easier than Redux and Context API Zustand was invented.
+        
+        - Zustand has lesser code.
+
+
+    - Usage of Redux, Context API, Zustand depends on whichever feels suitable as per Developer need or what is used by Company.
+
+- Redux
+    - Redux does not store any data, state.
+    - Redux only manages data, state.
+    - to solve the problem of Props Drilling and State Management and to centralize state Redux was made: 
+
+        - Redux is invented and used > Redux Toolkit (for easier use)
+        -  Redux Toolkit > store > Provider (to let React know that redux toolkit is used)
+            <Provider store = {store}>
+                <App/>
+            <Provider store />
+
+        - Slice in Redux toolkit
+            - data
+            - in every Slice there will be an actions (like, modify, update etc)
+        
+        - useSelector Hook: 
+            - to get Data from "store" useSelector Hook is used.
+            -
+        - useDispatch Hook:
+            - to give data to "store" useDispatch Hook is used.
+            - each Dispatch takes an action.
+
 --------------------------
 - Rendering vs Loading in SPAs
     - two distinct phases in a Single Page Application's lifecycle:
@@ -633,19 +698,19 @@ mycollection folder > ss
 - React lifecycle in functional components
     - state change > render
     - functional components manage their lifecycle through Hooks, primarily useEffect ??
-        - Functional components manage their lifecycle through Hooks, primarily useEffect" means that in modern React (16.8+), functional components—which are originally stateless functions—can now handle actions that happen at specific times, such as when a component appears on the screen (mounting), updates (props or state change), or disappears (unmounting).The useEffect hook replaces the old class-based lifecycle methods (componentDidMount, componentDidUpdate, componentWillUnmount) by unifying them into a single API to manage "side effects" - google
+        - Functional components manage their lifecycle through Hooks, primarily useEffect" means that in modern React (16.8+), functional components—which are originally stateless functions—can now handle actions that happen at specific times, such as when a component appears on the screen (mounting), updates (props or state change), or disappears (unmounting).The useEffect hook replaces the old class-based lifecycle methods (componentDidMount, componentDidUpdate, componentWillUnmount) by unifying them into a single API(Application Programming Interface) to manage "side effects" - google
 - React Mount Unmount 
 
 theory location: 
 mycollection folder > ss
 
-functional components manage their lifecycle through Hooks_primarily useEffect what does it mean-google
+(functional components manage their lifecycle through Hooks_primarily useEffect what does it mean-google)
 
-React Mount Unmount Explained-Deepseek
+(React Mount Unmount Explained-Deepseek)
 
-React lifecycle in functional components- claude
+(React lifecycle in functional components- claude)
 
-React lifecycle in functional components-google
+(React lifecycle in functional components-google)
 -----------------------------------------------------------------------------
 - useEffect()
 - useEffect dependency array: 
