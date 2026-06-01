@@ -1,0 +1,77 @@
+------------------ Redux -------------
+---------------------Detail from various source -----------
+(Redux in programming - Google - ss)
+(Redux_general definition - Google - ss)
+(Payload in Redux - google - ss)
+
+
+- Redux in programming - Google - ss
+    - Redux is a predictable, "centralized state management library" for JavaScript applications. It serves as a "global "store"" or "container" for "data" that needs to be "shared across your entire program". While it is most frequently paired with user interface libraries like React, you can use it with vanilla JavaScript or other frameworks like Angular and Vue.
+    
+    - Why Developers Use Redux:
+        In large frontend applications, keeping data in sync across different components is highly challenging. If a user adds an item to a shopping cart, multiple parts of the interface (the checkout button, the cart counter, the product list) need to know immediately.
+    
+        Instead of manually passing that data up and down complex component trees ("prop drilling"), Redux extracts the data into a single centralized location. This ensures a strict, unidirectional data flow that makes application behavior transparent and predictable.
+        
+    - The 3 Core Pillars of Redux:
+        
+        Redux operates on three fundamental rules:
+        
+            1. Single Source of Truth: 
+            The "global state of your application" is stored inside a "single, immutable JavaScript object" known as the "Store" .
+            
+            2. State is Read-Only: 
+            You cannot directly edit or overwrite the data in the "store". The only way to "trigger a change" is to "dispatch" an "Action", which is a plain JavaScript object" describing what event just happened".
+            
+            3. Changes are Made with Pure Functions: 
+            To define how your action modifies the data, you write a "function" called a "Reducer". Reducers take the "current state and the action", then output a "brand new state object without mutating the old one".
+            
+        - How the Data Flows (The Redux Lifecycle):
+            To modify data in Redux, your application moves through a strict cycle:
+                [ User UI Event ] ──> ( Dispatch Action ) ──> [ Reducer Function ] ──> [ Central Store ] ──> [ UI Updates ]
+                - The Event: 
+                    A user interacts with the app, such as clicking a "Like" button.
+                    
+                - The Dispatch: 
+                    The UI sends an action describing the event using store.dispatch({ type: 'LIKE_POST', payload: 1 }).
+                
+                - The Reducer: 
+                    The store passes the current state and the incoming action to the reducer.
+                    
+                - The Update: 
+                    The reducer calculates the new state, returns it, and the central store updates.
+                
+                - The Re-render: 
+                    Any UI components that are subscribed to that specific piece of data automatically update to show the changes.
+                
+    - Advantages and Disadvantages of Redux:
+        Benefits                                                                   
+            - Predictable Behavior: Uniform state changes make bugs easier to isolate.
+            - Time-Travel Debugging: You can record, pause, and replay every state change using the official Redux DevTools.
+            - Persistent State: The state remains active even when components load or unload.
+
+
+        Challenges:
+            - Boilerplate Code: Traditional setups require setting up many files, actions, and reducers for small features.
+            - Complexity: Introduces functional programming architectures that can overwhelm beginners.
+            - Overkill for Small Apps: Simpler state solutions are often better if data doesn't need to scale broadly.
+
+
+- Payload in Redux:
+(Payload in Redux - google - ss)
+    - In Redux, the payload is the property that holds the extra data needed to update your application state.
+    - While the type tells the program what happened, the payload provides the context of who, what, or how much changed. It is optional and can be any data type, such as an object, an array, a string, or a number.
+
+    - A Practical Breakdown
+        Think of an action as a postal package:
+        - type: The address label or shipping instructions (e.g., "DELIVER_PACKAGE"). It tells the postal service what to do.
+        - payload: The actual items inside the box. Without it, the worker knows to deliver a package, but has nothing to hand over.
+        In your specific example: 
+        store.dispatch({ type: 'LIKE_POST', payload: 1 })
+            type: 'LIKE_POST': 
+            Tells the reducer that a user liked a post.
+            payload: 1: 
+            Identifies exactly which post was liked (Post ID #1). The reducer uses this number to find the correct post in the database/state and increase its like count.
+
+    - What happens if you don't include it?
+        Without the payload, your reducer can only perform generic, hardcoded actions. For example, if you just dispatched { type: 'LIKE_POST' }, the reducer would have no idea which post to update, rendering the action useless.

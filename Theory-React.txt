@@ -232,6 +232,7 @@ https://reactrouter.com/
     - React's Problem
     - to solve the problem of Props Drilling and State Management and to centralize state and to centralize state: 
     1. Redux
+    (detail reference: Theory Folder)
         - Redux is invented and used > Redux Toolkit (for easier use)
         -  Redux Toolkit > store > Provider (to let React know that redux toolkit is used)
             <Provider store = {store}>
@@ -253,6 +254,7 @@ https://reactrouter.com/
             - each Dispatch takes an action.
 
     2. Context API:
+    (detail reference: Theory Folder)
         (to solve the problem of Props Drilling and State Management and to centralize state and State Management: )
 
         - React brought Context API.
@@ -269,6 +271,7 @@ https://reactrouter.com/
     - Usage of Redux, Context API, Zustand depends on whichever feels suitable as per Developer need or what is used by Company.
 
 - Redux
+  (detail reference: Theory Folder)
     - Redux does not store any data, state.
     - Redux only manages data, state.
     - to solve the problem of Props Drilling and State Management and to centralize state Redux was made: 
@@ -290,6 +293,15 @@ https://reactrouter.com/
             - to give data to "store" useDispatch Hook is used.
             - each Dispatch takes an action.
 
+        - Payload in Redux
+        (Payload in Redux - google - ss)
+
+- Redux toolkit
+- Redux vs Redux toolkit
+(detail reference: Theory Folder)
+(Redux vs Redux toolkit - google - ss)
+- Slices in Redux or Redux Toolkit:
+(detail reference: Theory Folder)
 --------------------------
 - Rendering vs Loading in SPAs
     - two distinct phases in a Single Page Application's lifecycle:
@@ -877,3 +889,11 @@ https://official-joke-api.appspot.com/random_joke
 
     (what is react boilerplate - google - ss)
     (React JS Library VS SPA Architectural Pattern - claude - ss)
+
+---------------------
+
+- Theme Switcher (Dark Mode/ Light mode / System wise Theme / Local Storage stored wise Theme)
+
+    - initial theme check:
+        - Local Storage (saved) > System wise > our theme apply(save)
+

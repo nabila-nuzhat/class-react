@@ -1,0 +1,26 @@
+---------------------------- Redux toolkit ---------------------------
+---------------------Detail from various source -----------
+(Redux vs Redux toolkit - google - ss)
+(Slices in Redux - google - ss)
+
+- Redux vs Redux toolkit - google:
+- Redux Toolkit (RTK) is the official, recommended way to write Redux logic today, wrapping around the core Redux library to eliminate boilerplate code and simplify state management.
+    - It is not a separate state management system; rather, it is a set of "batteries-included" utilities designed to make working with traditional Redux faster, safer, and much easier
+    - Boilerplate: Redux vs Redux toolkit
+        Redux Toolkit Boilerplate: Low. Combines actions and reducers into single "slices".
+        Redux Boilerplate: High. Requires separate files for actions, action types, and reducers.
+
+
+
+Slices in Redux or Redux Toolkit:
+(Slices in Redux - google - ss)
+    - A slice is a collection of Redux reducer logic and actions bundled together for a single feature of your application.
+    - Instead of splitting your code into separate files for actions, action types, and reducers, a slice lets you define them all in one place using the createSlice function.
+
+    - How Slices Work in Redux Toolkit:
+        Think of your global Redux state as a giant pizza. A "slice" is exactly what it sounds like: a single, self-contained piece of that pizza dedicated to one specific domain (like user authentication, a shopping cart, or UI theme settings).
+        
+        When you create a slice, Redux Toolkit automatically generates:
+            1. Action Types: The background string identifiers (e.g., 'cart/addItem').
+            2. Action Creators: The functions you call to trigger updates (e.g., addItem()).
+            3. Reducers: The logic that calculates how the state actually changes.
