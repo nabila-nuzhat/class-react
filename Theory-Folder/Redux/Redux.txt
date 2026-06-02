@@ -3,6 +3,7 @@
 (Redux in programming - Google - ss)
 (Redux_general definition - Google - ss)
 (Payload in Redux - google - ss)
+(Redux library or framework or package_Dependecies Definition - google - ss)
 
 
 - Redux in programming - Google - ss
@@ -75,3 +76,10 @@
 
     - What happens if you don't include it?
         Without the payload, your reducer can only perform generic, hardcoded actions. For example, if you just dispatched { type: 'LIKE_POST' }, the reducer would have no idea which post to update, rendering the action useless.
+
+
+- Redux library or framework or package_Dependecies Definition - google:
+(Redux library or framework or package_Dependecies Definition - google -ss)
+    - Redux is a JavaScript library that is published and distributed as a package. It is explicitly not a framework.
+    📚 Why it is a Library
+        - A framework dictates the entire architecture of your application and controls the flow (Inversion of Control). In contrast, a library is a collection of helper code that you call whenever you need it

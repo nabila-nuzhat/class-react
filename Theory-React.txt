@@ -262,6 +262,7 @@ https://reactrouter.com/
         Redux + Context API can be used.
 
     3. Zustand:
+    (detail reference: Theory Folder)
         (to solve the problem of Props Drilling and State Management and to centralize state: )
         - to make more easier than Redux and Context API Zustand was invented.
         
@@ -897,3 +898,13 @@ https://official-joke-api.appspot.com/random_joke
     - initial theme check:
         - Local Storage (saved) > System wise > our theme apply(save)
 
+--------------------------
+
+- Dependencies / dependency:
+(Redux library or framework or package_Dependecies Definition - google -ss)
+    - A dependency is an external code bundle that your software project needs to function correctly.Instead of writing every single feature from scratch, you reuse code written by other developers.
+    ⚙️ How It WorksThe Concept: Your project "depends" on this code to run or build.The Source: You download these dependencies from registries like npm.The Manifest: They are listed inside your project's package.json file.
+    👥 The Two Main Types of Dependencies:
+        Production Dependencies (dependencies): Code required to run the app in the real world (e.g., Redux, React, Lodash).
+
+        Development Dependencies (devDependencies): Code only needed while building or testing the app (e.g., compilers, linters, test runners).
