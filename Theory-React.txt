@@ -895,6 +895,9 @@ https://official-joke-api.appspot.com/random_joke
 
 - Theme Switcher (Dark Mode/ Light mode / System wise Theme / Local Storage stored wise Theme)
 
+    - initially theme in the browser can be from 2 ways:
+        1. OS/System Preference (most common)(default set in device)
+        2. or user's manually selected theme. saved in localStorage.
     - initial theme check:
         - Local Storage (saved) > System wise > our theme apply(save)
 

@@ -1,0 +1,20 @@
+---------------- Theme Switcher--------------
+
+- Theme Switcher (Dark Mode/ Light mode / System wise Theme / Local Storage stored wise Theme)
+
+    - initially theme in the browser can be from 4 common ways:
+        1. OS/System Preference (most common)(default set in device)
+        2. user's manually selected theme. saved in localStorage.
+        3. Server/ cookie:
+            Some sites (especially SSR like Next.js) read the theme from a cookie sent with the HTTP request, so the server can render the correct theme from the start.
+        4. Hard-coded default
+            The simplest case — the developer just picks one and that's what everyone gets, no detection at all.
+
+        Typical Priority order of theme:
+            localStorage → Cookie/Server → OS preference → Hard-coded
+
+            or
+            User Account (DB) → localStorage → Cookie → OS preference → Hard-coded
+            
+    - initial theme check:
+        - Local Storage (saved) > System wise > our theme apply(save)
