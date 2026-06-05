@@ -1,0 +1,198 @@
+
+<style>
+.tab-bar { display: flex; gap: 4px; margin-bottom: 1rem; flex-wrap: wrap; }
+.tab { padding: 6px 14px; border-radius: 8px; border: 0.5px solid var(--color-border-tertiary); font-size: 13px; cursor: pointer; background: var(--color-background-primary); color: var(--color-text-secondary); }
+.tab.active { background: var(--color-background-secondary); color: var(--color-text-primary); border-color: var(--color-border-secondary); font-weight: 500; }
+.code-block { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: 8px; padding: 1rem 1.25rem; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.8; overflow-x: auto; margin-bottom: 1rem; }
+.kw{color:#7F77DD}.fn{color:#0F6E56}.str{color:#BA7517}.cm{color:var(--color-text-tertiary);font-style:italic}.tag{color:#993C1D}.prop{color:#185FA5}
+.preview-wrap { background: var(--color-background-secondary); border-radius: 12px; padding: 1.5rem; margin-top: 1rem; }
+.preview-label { font-size: 11px; color: var(--color-text-tertiary); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+.theme-blue   { --bg: #eff6ff; --card: #ffffff; --text: #1e3a5f; --sub: #3b82f6; --btn: #2563eb; --btntext: #ffffff; --border: #bfdbfe; }
+.theme-purple { --bg: #f5f3ff; --card: #ffffff; --text: #2e1065; --sub: #7c3aed; --btn: #7c3aed; --btntext: #ffffff; --border: #ddd6fe; }
+.theme-green  { --bg: #f0fdf4; --card: #ffffff; --text: #14532d; --sub: #16a34a; --btn: #16a34a; --btntext: #ffffff; --border: #bbf7d0; }
+.theme-rose   { --bg: #fff1f2; --card: #ffffff; --text: #4c0519; --sub: #e11d48; --btn: #e11d48; --btntext: #ffffff; --border: #fecdd3; }
+
+.theme-blue.mode-dark   { --bg: #0f172a; --card: #1e293b; --text: #e2e8f0; --sub: #93c5fd; --btn: #3b82f6; --btntext: #ffffff; --border: #1e3a5f; }
+.theme-purple.mode-dark { --bg: #13111c; --card: #1e1b2e; --text: #ede9fe; --sub: #c4b5fd; --btn: #7c3aed; --btntext: #ffffff; --border: #2e1065; }
+.theme-green.mode-dark  { --bg: #052e16; --card: #14532d; --text: #dcfce7; --sub: #86efac; --btn: #16a34a; --btntext: #ffffff; --border: #166534; }
+.theme-rose.mode-dark   { --bg: #1a0008; --card: #4c0519; --text: #ffe4e6; --sub: #fda4af; --btn: #e11d48; --btntext: #ffffff; --border: #9f1239; }
+
+.theme-blue.mode-system,.theme-purple.mode-system,.theme-green.mode-system,.theme-rose.mode-system{}
+
+.app-preview {
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  transition: background 0.2s, color 0.2s;
+}
+.app-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+.app-title { font-size: 18px; font-weight: 500; color: var(--text); margin: 0 0 4px; }
+.app-sub { font-size: 13px; color: var(--sub); margin: 0 0 12px; }
+.app-body { font-size: 13px; color: var(--text); opacity: 0.75; margin: 0 0 12px; line-height: 1.6; }
+.app-btn { background: var(--btn); color: var(--btntext); border: none; border-radius: 6px; padding: 7px 16px; font-size: 13px; cursor: pointer; font-weight: 500; }
+.switcher-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem; }
+.sw-btn { padding: 5px 12px; border-radius: 6px; border: 1px solid var(--border); font-size: 12px; cursor: pointer; background: var(--card); color: var(--text); font-weight: 400; }
+.sw-btn.active { background: var(--btn); color: var(--btntext); border-color: var(--btn); font-weight: 500; }
+.sw-label { font-size: 11px; color: var(--text); opacity: 0.5; align-self: center; margin-right: 2px; }
+</style>
+
+<h2 class="sr-only">Theme switcher with Tailwind classes — code and live preview</h2>
+
+<div class="tab-bar">
+  <button class="tab active" onclick="show('ctx')">ThemeContext.jsx</button>
+  <button class="tab" onclick="show('page')">Page.jsx</button>
+  <button class="tab" onclick="show('prev')">Live preview</button>
+</div>
+
+<div id="pane-ctx">
+<div class="code-block"><pre>
+<span class="kw">import</span> { createContext, useContext, useState } <span class="kw">from</span> <span class="str">'react'</span>;
+
+<span class="kw">const</span> ThemeContext = <span class="fn">createContext</span>(<span class="kw">null</span>);
+
+<span class="kw">export function</span> <span class="fn">ThemeProvider</span>({ children }) {
+  <span class="kw">const</span> [mode, setMode]   = <span class="fn">useState</span>(<span class="str">'system'</span>);  <span class="cm">// system | light | dark</span>
+  <span class="kw">const</span> [color, setColor] = <span class="fn">useState</span>(<span class="str">'blue'</span>);    <span class="cm">// blue | purple | green | rose</span>
+
+  <span class="cm">// build the class string for the root element</span>
+  <span class="kw">const</span> themeClass = <span class="str">`theme-${color} mode-${mode}`</span>;
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;ThemeContext.Provider</span> <span class="prop">value</span>={{ mode, setMode, color, setColor }}<span class="tag">&gt;</span>
+      <span class="tag">&lt;div</span> <span class="prop">className</span>={themeClass}<span class="tag">&gt;</span>
+        {children}
+      <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/ThemeContext.Provider&gt;</span>
+  );
+}
+
+<span class="kw">export const</span> <span class="fn">useTheme</span> = () => <span class="fn">useContext</span>(ThemeContext);
+</pre></div>
+</div>
+
+<div id="pane-page" style="display:none">
+<div class="code-block"><pre>
+<span class="kw">import</span> { useTheme } <span class="kw">from</span> <span class="str">'./ThemeContext'</span>;
+
+<span class="kw">export default function</span> <span class="fn">Page</span>() {
+  <span class="kw">const</span> { mode, setMode, color, setColor } = <span class="fn">useTheme</span>();
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;div</span> <span class="prop">className</span>=<span class="str">"min-h-screen bg-[--bg] p-8"</span><span class="tag">&gt;</span>
+
+      <span class="cm">{/* mode switcher */}</span>
+      <span class="tag">&lt;div</span> <span class="prop">className</span>=<span class="str">"flex gap-2 mb-4"</span><span class="tag">&gt;</span>
+        {[<span class="str">'system'</span>, <span class="str">'light'</span>, <span class="str">'dark'</span>].<span class="fn">map</span>((m) => (
+          <span class="tag">&lt;button</span>
+            <span class="prop">key</span>={m}
+            <span class="prop">onClick</span>={() => <span class="fn">setMode</span>(m)}
+            <span class="prop">className</span>={<span class="str">`px-3 py-1 rounded text-sm border
+              ${mode === m
+                ? 'bg-[--btn] text-[--btntext] border-[--btn]'
+                : 'bg-[--card] text-[--text] border-[--border]'
+              }`</span>}
+          <span class="tag">&gt;</span>
+            {m}
+          <span class="tag">&lt;/button&gt;</span>
+        ))}
+      <span class="tag">&lt;/div&gt;</span>
+
+      <span class="cm">{/* color switcher */}</span>
+      <span class="tag">&lt;div</span> <span class="prop">className</span>=<span class="str">"flex gap-2 mb-6"</span><span class="tag">&gt;</span>
+        {[<span class="str">'blue'</span>, <span class="str">'purple'</span>, <span class="str">'green'</span>, <span class="str">'rose'</span>].<span class="fn">map</span>((c) => (
+          <span class="tag">&lt;button</span>
+            <span class="prop">key</span>={c}
+            <span class="prop">onClick</span>={() => <span class="fn">setColor</span>(c)}
+            <span class="prop">className</span>={<span class="str">`px-3 py-1 rounded text-sm border
+              ${color === c
+                ? 'bg-[--btn] text-[--btntext]'
+                : 'bg-[--card] text-[--text] border-[--border]'
+              }`</span>}
+          <span class="tag">&gt;</span>
+            {c}
+          <span class="tag">&lt;/button&gt;</span>
+        ))}
+      <span class="tag">&lt;/div&gt;</span>
+
+      <span class="cm">{/* card using theme vars */}</span>
+      <span class="tag">&lt;div</span> <span class="prop">className</span>=<span class="str">"bg-[--card] border border-[--border] rounded-lg p-4"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;h2</span> <span class="prop">className</span>=<span class="str">"text-[--text] text-lg font-medium"</span><span class="tag">&gt;</span>Hello world<span class="tag">&lt;/h2&gt;</span>
+        <span class="tag">&lt;p</span> <span class="prop">className</span>=<span class="str">"text-[--sub] text-sm mb-3"</span><span class="tag">&gt;</span>Current theme: {color} / {mode}<span class="tag">&lt;/p&gt;</span>
+        <span class="tag">&lt;button</span> <span class="prop">className</span>=<span class="str">"bg-[--btn] text-[--btntext] px-4 py-1.5 rounded text-sm"</span><span class="tag">&gt;</span>
+          Action
+        <span class="tag">&lt;/button&gt;</span>
+      <span class="tag">&lt;/div&gt;</span>
+
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}
+</pre></div>
+</div>
+
+<div id="pane-prev" style="display:none">
+<div class="preview-wrap">
+  <div class="preview-label">Live preview — click to switch</div>
+  <div id="app-root" class="app-preview theme-blue mode-system">
+    <div class="switcher-row">
+      <span class="sw-label">mode</span>
+      <button class="sw-btn active" onclick="setMode('system',this)">system</button>
+      <button class="sw-btn" onclick="setMode('light',this)">light</button>
+      <button class="sw-btn" onclick="setMode('dark',this)">dark</button>
+    </div>
+    <div class="switcher-row">
+      <span class="sw-label">color</span>
+      <button class="sw-btn active" onclick="setColor('blue',this)">blue</button>
+      <button class="sw-btn" onclick="setColor('purple',this)">purple</button>
+      <button class="sw-btn" onclick="setColor('green',this)">green</button>
+      <button class="sw-btn" onclick="setColor('rose',this)">rose</button>
+    </div>
+    <div class="app-card">
+      <p class="app-title">Hello world</p>
+      <p class="app-sub" id="sub-label">Current: blue / system</p>
+      <p class="app-body">This card uses CSS variables set by the theme class on the root div. Tailwind's arbitrary value syntax <code>bg-[--btn]</code> reads those variables directly.</p>
+      <button class="app-btn">Action</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+function show(id) {
+  ['ctx','page','prev'].forEach(k => {
+    document.getElementById('pane-' + k).style.display = k === id ? 'block' : 'none';
+  });
+  document.querySelectorAll('.tab').forEach((t,i) => {
+    t.classList.toggle('active', ['ctx','page','prev'][i] === id);
+  });
+}
+
+var currentMode = 'system', currentColor = 'blue';
+
+function updateRoot() {
+  var root = document.getElementById('app-root');
+  root.className = 'app-preview theme-' + currentColor + ' mode-' + currentMode;
+  document.getElementById('sub-label').textContent = 'Current: ' + currentColor + ' / ' + currentMode;
+}
+
+function setMode(m, btn) {
+  currentMode = m;
+  btn.closest('.switcher-row').querySelectorAll('.sw-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  updateRoot();
+}
+
+function setColor(c, btn) {
+  currentColor = c;
+  btn.closest('.switcher-row').querySelectorAll('.sw-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  updateRoot();
+}
+</script>

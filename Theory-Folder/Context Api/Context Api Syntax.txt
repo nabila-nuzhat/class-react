@@ -1,6 +1,7 @@
 ------------ Context Api Syntax --------------
 (Context API code syntax breakdown - Claude - ss)
 (Context api data types and children prop_with Example-claude - ss)
+(theme switcher 3 themes _system_dark_light_context api-Google - ss)
 
     import { createContext, useContext, useState } from "react";
 

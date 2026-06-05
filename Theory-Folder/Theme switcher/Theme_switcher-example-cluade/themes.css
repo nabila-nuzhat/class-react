@@ -1,0 +1,81 @@
+/* themes.css 
+claude: for Tailwind class
+    source: (Theme switcher multiple themes _system_dark_light_context api-claude)
+ */
+
+ /* --------------------------------------- */
+/* each theme sets CSS variables on [data-theme="x"] */
+
+[data-theme="blue"] {
+  --color-bg:      #eff6ff;
+  --color-card:    #ffffff;
+  --color-text:    #1e3a5f;
+  --color-muted:   #3b82f6;
+  --color-primary: #2563eb;
+  --color-border:  #bfdbfe;
+}
+
+[data-theme="purple"] {
+  --color-bg:      #f5f3ff;
+  --color-card:    #ffffff;
+  --color-text:    #2e1065;
+  --color-muted:   #7c3aed;
+  --color-primary: #7c3aed;
+  --color-border:  #ddd6fe;
+}
+
+[data-theme="green"] {
+  --color-bg:      #f0fdf4;
+  --color-card:    #ffffff;
+  --color-text:    #14532d;
+  --color-muted:   #16a34a;
+  --color-primary: #16a34a;
+  --color-border:  #bbf7d0;
+}
+
+[data-theme="rose"] {
+  --color-bg:      #fff1f2;
+  --color-card:    #ffffff;
+  --color-text:    #4c0519;
+  --color-muted:   #e11d48;
+  --color-primary: #e11d48;
+  --color-border:  #fecdd3;
+}
+
+/* dark overrides — same data-theme, add .dark class */
+
+.dark [data-theme="blue"] {
+  --color-bg:      #0f172a;
+  --color-card:    #1e293b;
+  --color-text:    #e2e8f0;
+  --color-muted:   #93c5fd;
+  --color-primary: #3b82f6;
+  --color-border:  #1e3a5f;
+}
+
+.dark [data-theme="purple"] {
+  --color-bg:      #13111c;
+  --color-card:    #1e1b2e;
+  --color-text:    #ede9fe;
+  --color-muted:   #c4b5fd;
+  --color-primary: #7c3aed;
+  --color-border:  #2e1065;
+}
+
+.dark [data-theme="green"] {
+  --color-bg:      #052e16;
+  --color-card:    #14532d;
+  --color-text:    #dcfce7;
+  --color-muted:   #86efac;
+  --color-primary: #16a34a;
+  --color-border:  #166534;
+}
+
+.dark [data-theme="rose"] {
+  --color-bg:      #1a0008;
+  --color-card:    #4c0519;
+  --color-text:    #ffe4e6;
+  --color-muted:   #fda4af;
+  --color-primary: #e11d48;
+  --color-border:  #9f1239;
+}
