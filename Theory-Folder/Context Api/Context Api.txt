@@ -46,7 +46,7 @@
             }
             Use code with caution.(Note: Starting with React 19, use <ThemeContext value={...}> instead of the legacy <ThemeContext.Provider value={...}> syntax).
             
-        2. Wrap the Application TreeInject the custom provider at the top level of your component tree to make data globally accessible.jsx// App.js
+        2. Wrap the Application Tree: Inject the custom provider at the top level of your component tree to make data globally accessible.jsx// App.js
             import { ThemeProvider } from './ThemeContext';
             import SettingsPage from './SettingsPage';
 

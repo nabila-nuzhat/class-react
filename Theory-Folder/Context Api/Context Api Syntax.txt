@@ -1,0 +1,93 @@
+------------ Context Api Syntax --------------
+(Context API code syntax breakdown - Claude - ss)
+(Context api data types and children prop_with Example-claude - ss)
+
+    import { createContext, useContext, useState } from "react";
+
+    // 1. Create
+    const XxxContext = createContext(null);
+
+    // 2. Provider
+    export const XxxProvider = ({ children }) => {
+    const [state, setState] = useState(initialValue);
+
+    return (
+        <XxxContext.Provider value={{ state, setState }}>
+        {children}
+        </XxxContext.Provider>
+    );
+    };
+
+    // 3. Custom hook
+    export const useXxx = () => useContext(XxxContext);
+
+    Just replace Xxx with your context name and change state/setState to meaningful names.
+NOTE: The actual difference between export styles:
+    // named export — inline
+        export const useTheme = () => useContext(ThemeContext);
+
+    // named export — separate
+        const useTheme = () => useContext(ThemeContext);
+        export { useTheme };
+
+    // default export — only one per file
+        const useTheme = () => useContext(ThemeContext);
+        export default useTheme;
+
+--------------- Multiple Context ---------------
+The Common Fix — A Combined Provider
+People solve wrapper hell by creating one file that combines all providers:
+src/
+├── contexts/
+│   ├── ThemeContext.jsx
+│   ├── AuthContext.jsx
+│   ├── CartContext.jsx
+│   └── AppProviders.jsx   ← combines all providers
+└── main.jsx
+
+
+// AppProviders.jsx
+    import { ThemeProvider } from "./ThemeContext";
+    import { AuthProvider } from "./AuthContext";
+    import { CartProvider } from "./CartContext";
+
+    const AppProviders = ({ children }) => {
+    return (
+        <AuthProvider>
+        <ThemeProvider>
+            <CartProvider>
+            {children}
+            </CartProvider>
+        </ThemeProvider>
+        </AuthProvider>
+    );
+    };
+
+    export default AppProviders;
+
+// main.jsx — now clean
+    ReactDOM.createRoot(document.getElementById("root")).render(
+    <AppProviders>
+        <App />
+    </AppProviders>
+    );
+
+Consuming Multiple Contexts in One Component:
+// Any component deep in the tree
+    import { useAuth } from "../contexts/AuthContext";
+    import { useTheme } from "../contexts/ThemeContext";
+    import { useCart } from "../contexts/CartContext";
+
+    const Navbar = () => {
+    const { user, logout } = useAuth();
+    const { theme } = useTheme();
+    const { items } = useCart();
+
+    return (
+        <nav className={theme}>
+        <span>Welcome, {user?.name}</span>
+        <span>Cart: {items.length}</span>
+        <button onClick={logout}>Logout</button>
+        </nav>
+    );
+};

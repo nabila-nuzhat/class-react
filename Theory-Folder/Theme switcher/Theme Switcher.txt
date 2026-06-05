@@ -1,6 +1,12 @@
 ---------------- Theme Switcher--------------
+(Theme Switcher_Cluade - ss)
+(Theme in localStorage_user or developer-Claude - ss)
+(Theme in localStorage_user or developer-Google - ss)
+(can the user set a theme in localStorage manually without any code_Google - ss)
+(can the user set a theme in localStorage manually without any code_2-Google-AI Mode - ss)
 
-- Theme Switcher (Dark Mode/ Light mode / System wise Theme / Local Storage stored wise Theme)
+
+- Theme Switcher (Dark Mode/ Light mode / System wise Theme / Local Storage stored wise Theme):
 
     - initially theme in the browser can be from 4 common ways:
         1. OS/System Preference (most common)(default set in device)
@@ -15,6 +21,6 @@
 
             or
             User Account (DB) → localStorage → Cookie → OS preference → Hard-coded
-            
+
     - initial theme check:
         - Local Storage (saved) > System wise > our theme apply(save)

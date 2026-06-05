@@ -1,0 +1,63 @@
+
+<style>
+  .site { font-family: var(--font-sans); background: var(--color-background-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; border: 0.5px solid var(--color-border-tertiary); }
+  .navbar { background: var(--color-background-primary); border-bottom: 0.5px solid var(--color-border-tertiary); padding: 0 24px; height: 52px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-left { display: flex; align-items: center; gap: 24px; }
+  .nav-logo { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+  .nav-links { display: flex; gap: 20px; }
+  .nav-links a { font-size: 14px; color: var(--color-text-secondary); text-decoration: none; }
+  .nav-right { display: flex; align-items: center; gap: 12px; }
+  .avatar { width: 28px; height: 28px; border-radius: 50%; background: #CECBF6; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: #3C3489; }
+  .username { font-size: 14px; color: var(--color-text-primary); font-weight: 500; }
+  .cart-badge { position: relative; display: flex; align-items: center; }
+  .cart-badge i { font-size: 18px; color: var(--color-text-secondary); }
+  .badge { position: absolute; top: -5px; right: -7px; background: #D85A30; color: #fff; font-size: 10px; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 500; }
+  .page-body { padding: 32px 24px; }
+  .page-body h2 { font-size: 16px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 8px; }
+  .page-body p { font-size: 13px; color: var(--color-text-secondary); margin: 0 0 20px; }
+  .label { display: inline-block; font-size: 11px; background: var(--color-background-info); color: var(--color-text-info); padding: 3px 10px; border-radius: var(--border-radius-md); margin-bottom: 6px; }
+  .annotation { display: flex; align-items: flex-start; gap: 8px; margin-top: 4px; }
+  .annotation i { font-size: 14px; color: var(--color-text-secondary); margin-top: 1px; }
+  .annotation span { font-size: 13px; color: var(--color-text-secondary); }
+  code { font-family: var(--font-mono); font-size: 12px; background: var(--color-background-secondary); padding: 1px 6px; border-radius: 4px; color: var(--color-text-primary); }
+</style>
+
+<div class="site">
+  <nav class="navbar">
+    <div class="nav-left">
+      <span class="nav-logo">MyShop</span>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">About</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="cart-badge">
+        <i class="ti ti-shopping-cart" aria-hidden="true"></i>
+        <span class="badge">3</span>
+      </div>
+      <div class="avatar">RK</div>
+      <span class="username">Rafiq</span>
+    </div>
+  </nav>
+
+  <div class="page-body">
+    <span class="label">from context</span>
+    <h2>What Navbar reads via <code>useXxx()</code></h2>
+    <p>The Navbar component never received props. It called <code>const &#123; state &#125; = useXxx()</code> and got this data from context:</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 12px 14px;">
+        <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0 0 4px;">state.user.name</p>
+        <p style="font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin: 0;">"Rafiq"</p>
+        <div class="annotation"><i class="ti ti-arrow-up-right" aria-hidden="true"></i><span>renders as the avatar name + username text</span></div>
+      </div>
+      <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 12px 14px;">
+        <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0 0 4px;">state.cart.count</p>
+        <p style="font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin: 0;">3</p>
+        <div class="annotation"><i class="ti ti-arrow-up-right" aria-hidden="true"></i><span>renders as the red badge on the cart icon</span></div>
+      </div>
+    </div>
+  </div>
+</div>
