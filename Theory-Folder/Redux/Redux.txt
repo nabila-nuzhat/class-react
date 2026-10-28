@@ -5,7 +5,7 @@
 (Payload in Redux - google - ss)
 (Redux library or framework or package_Dependecies Definition - google - ss)
 
-- ** Redux doesnt store data, redux only manages data.
+- ** Redux doesnt store data & state, redux only manages data ans state.
 
 - Redux in programming - Google - ss
     - Redux is a predictable, "centralized state management library" for JavaScript applications. It serves as a "global "store"" or "container" for "data" that needs to be "shared across your entire program". While it is most frequently paired with user interface libraries like React, you can use it with vanilla JavaScript or other frameworks like Angular and Vue.
