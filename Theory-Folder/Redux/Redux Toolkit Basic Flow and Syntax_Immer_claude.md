@@ -1,3 +1,8 @@
+## MAIN Summary : Redux Toolkit *** -----------
+# The slice is a convenience package that createSlice gives you.
+# The store takes only the reducer function out of it.
+# The components take only the action creators out of it.
+--------------------------------------------
 # Conversation History: Redux Toolkit
 
 ---
