@@ -10,3 +10,4 @@ __SIR CLASS POINT------------------------------------__
 
 ## Unique **key** __prop__ is must for each **child** while __iterating/loop__
     - bcz in virtual dom react will think every child as same, finding **no change**
+    - unique: id, the names of the elements (eg, theme names)
