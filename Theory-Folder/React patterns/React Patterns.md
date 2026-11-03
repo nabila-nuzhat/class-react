@@ -7,3 +7,6 @@ __SIR CLASS POINT------------------------------------__
 * to faster in the development cycle in React pattern
 
 ## UI return -> array element -> should not use curly braces {} in arrow function ??????????????
+
+## Unique **key** is must for each **child** while __iterating/loop__
+    - bcz in virtual dom react will think every child as same, finding **no change**
