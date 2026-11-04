@@ -1,5 +1,6 @@
 ## TanStack-----------------------
 **Sir class** ------
+# Core 3 concepts of React Query:
 * Queries: to get something from server.
     eg. to get products from server.
 * Mutations to give something to server.
