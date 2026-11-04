@@ -21,3 +21,5 @@ __SIR CLASS POINT------------------------------------__
 * - named components or, shared components or, shared\components
 * - pages\home\components\Home.jsx 
     (page wise components)
+* - components\products\Productard.jsx, ProductContainer.jsx
+* - shared\hooks
