@@ -15,3 +15,6 @@
 
 ## Accessing the Query in TanStack
 * - useQuery
+    eg.  to get products in products' container. (class example using dummy json)
+
+## Try Catch -> manually not needed, as TanStack handles it.
