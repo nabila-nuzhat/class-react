@@ -23,3 +23,5 @@ __SIR CLASS POINT------------------------------------__
     (page wise components)
 * - components\products\Productard.jsx, ProductContainer.jsx
 * - shared\hooks
+
+## React Devtools -----------

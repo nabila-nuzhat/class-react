@@ -28,3 +28,18 @@
 ## ispending
 ## isError
 # loading
+
+## React Devtools -----------
+
+## Important Defaults @ Tanstackl website ------
+# Frontend Caching: bcz React Cannot Cache
+* - if the user goes to somewhere else, the caching by TanStack makes it stay there without newly fetching. 
+    TansTack __refetches__ it from __cache__. ????????
+
+* __inifinity__
+*__static__
+* **refetch in background**
+# Retry auto 3 times----------
+# StaleTime:
+* - inside **useQuery**
+* - or inside __main.jsx__ -> inside an **Object {}** inside **QueryClient()** -> inside **queries:{staleTime: }**
