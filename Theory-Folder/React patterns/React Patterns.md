@@ -25,3 +25,39 @@ __SIR CLASS POINT------------------------------------__
 * - shared\hooks
 
 ## React Devtools -----------
+
+## Category List
+
+## Sort why????
+* - label is the name of that value
+* - const sortOptions = [
+    {
+        label: "",
+        value:
+    }
+
+    {
+        label: "",
+        value:
+    }
+
+    {
+        label: "",
+        value:
+    }
+]
+
+
+
+# Category should not be filtered, they are in __Routes__
+
+
+# useSearcParams
+* - URL update
+* - query
+
+## Does URL pattern depend on backend developer???????
+answer: claude URL pattern and backend developer
+
+# Search Params
+* - to see on console, have to __toString()__

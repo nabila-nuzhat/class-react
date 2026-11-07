@@ -43,3 +43,9 @@
 # StaleTime:
 * - inside **useQuery**
 * - or inside __main.jsx__ -> inside an **Object {}** inside **QueryClient()** -> inside **queries:{staleTime: }**
+
+## Filter
+
+## Category List
+
+## Sort
