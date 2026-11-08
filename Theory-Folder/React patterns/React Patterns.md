@@ -60,4 +60,16 @@ __SIR CLASS POINT------------------------------------__
 answer: claude URL pattern and backend developer
 
 # Search Params
-* - to see on console, have to __toString()__
+* - to see on console, have to __toString()__ ?????
+* - by default object coverts to string
+* - when __object__ is fircefully converted to string then o/p = **[object object]**
+
+* - if **object** is coverted to **json** it turns innto a foprnat similar to __object like__
+
+- * but URLS are in different form. for **url form** used: 
+**new URLSearchParams(searchParams)**
+- delete previous keys
+
+# params.append() vs params.set()
+* - .set() : sets totally new in URL
+* - .append() : adds with existing ones in URL
